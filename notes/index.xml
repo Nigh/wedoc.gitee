@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>指导笔记 on 闲一文档</title><link>https://xianii.gitee.io/notes/</link><description>Recent content in 指导笔记 on 闲一文档</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><atom:link href="https://xianii.gitee.io/notes/index.xml" rel="self" type="application/rss+xml"/><item><title>nRF52开发笔记</title><link>https://xianii.gitee.io/notes/nrf52note/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/notes/nrf52note/</guid><description>nRF52从机发送缓冲区溢出报错 BLE从机发送缓冲区溢出会导致发送中断，并在下一次发送时发生断开。需要捕获和处理报错。
+可以额外添加一级缓冲，并对超出缓冲区的部分做丢弃处理。
+nRF52 广播包拼接 当m_advertising.adv_data.adv_data.len与其中EIR长度之和不等时，发生的解析错误可能将相邻广播包连接起来。
+其机制还需进一步分析了解。
+nRF52 蓝牙更新广播信息 使用ble_advertising_advdata_update更新广播信息时。
+在广播开启时，更改内容实时生效，更改广播长度在下一次开启广播时生效
+nRF52连接间隔与通信带宽问题 在CSW-V1上，在250ms连接间隔下，使用request方式通信只能达到2Hz左右的频率。 在CSW-V1上，在250ms连接间隔下，使用command方式通信，延迟在1-2个连接间隔。 在CSW-B5上，在250ms连接间隔下，使用command方式通信，延迟在几十ms之内，且在80ms内即返回了24个数据包。同时，测试功耗没有异常。 更改gap_conn_cfg.event_length至16可实现每个连接间隔可返回20+个数据包
+gap_conn_cfg.event_length默认值为3，其为一个以1.25ms为单位的窗口时间，每个连接间隔能够通信的时长由这个窗口的时间决定。
+蓝牙在有效距离内易断开 断开原因为:0x08(timeout)
+考虑调整晶振精度参数，降低精度要求：比如从20ppm改为50ppm
+参考资料： https://devzone.nordicsemi.com/f/nordic-q-a/29786/ble_hci_connection_timeout-and-nrf_clock_lf_xtal_accuracy_xx_ppm/118161#118161
+nRF52接仿真器能运行接电源不能运行 可能原因有：
+软件使能了 DCDC，但硬件未有外部 DCDC 电路。关闭 DCDC 可修复。 printf 重定向问题。Case ID: 207373 nRF52 FDS库在o2优化等级报错 **问题：**在o2优化等级下，被写入的数据指针会有非 word 对齐的情况，此时会报错。
+**解决：**对需要使用 fds 写入的数据均使用强制 word 对齐。在 SES 中可使用__ALIGN(4)
+nRF52 使用P0.21作为IO口 编译时更改
+去掉CONFIG_GPIO_AS_PINRESET宏，重新完全编译。 使用nrfjrog -eraseuicr擦除 UICR 区域。因为使用 IDE 烧录是不会主动擦除 UICR 的，会导致 reset 引脚的配置没有改变。</description></item><item><title>备忘杂记</title><link>https://xianii.gitee.io/notes/memo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/notes/memo/</guid><description>Badge list primary (default) secondary success danger warning info light dark
+Gitea添加TeX支持 例: $CheckSum = \sum_5^n n \oplus A_n$ 和 $x = {-b \pm \sqrt{b^2-4ac} \over 2a}$
+在templates/custom目录下新建header.tmpl，内容如下：
+&amp;lt;script&amp;gt; MathJax = { tex: { inlineMath: [[&amp;#39;$&amp;#39;, &amp;#39;$&amp;#39;], [&amp;#39;\\(&amp;#39;, &amp;#39;\\)&amp;#39;]], displayMath: [[&amp;#34;$$&amp;#34;, &amp;#34;$$&amp;#34;], [&amp;#34;\\[&amp;#34;, &amp;#34;\\]&amp;#34;]] }, svg: { fontCache: &amp;#39;global&amp;#39; } }; &amp;lt;/script&amp;gt; &amp;lt;script type=&amp;#34;text/javascript&amp;#34; id=&amp;#34;MathJax-script&amp;#34; async src=&amp;#34;https://cdn.bootcdn.net/ajax/libs/mathjax/3.0.5/es5/tex-svg.js&amp;#34;&amp;gt; &amp;lt;/script&amp;gt; 渲染方式可以更改为如下面的其他方式等：
+&amp;lt;script src=&amp;quot;https://cdn.bootcdn.net/ajax/libs/mathjax/3.0.5/es5/tex-chtml.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;quot;https://cdn.bootcdn.net/ajax/libs/mathjax/3.0.5/es5/tex-mml-svg.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;quot;https://cdn.bootcdn.net/ajax/libs/mathjax/3.0.5/es5/tex-mml-chtml.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;</description></item></channel></rss>
