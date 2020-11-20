@@ -13,7 +13,19 @@ nRF52接仿真器能运行接电源不能运行 可能原因有：
 软件使能了 DCDC，但硬件未有外部 DCDC 电路。关闭 DCDC 可修复。 printf 重定向问题。Case ID: 207373 nRF52 FDS库在o2优化等级报错 **问题：**在o2优化等级下，被写入的数据指针会有非 word 对齐的情况，此时会报错。
 **解决：**对需要使用 fds 写入的数据均使用强制 word 对齐。在 SES 中可使用__ALIGN(4)
 nRF52 使用P0.21作为IO口 编译时更改
-去掉CONFIG_GPIO_AS_PINRESET宏，重新完全编译。 使用nrfjrog -eraseuicr擦除 UICR 区域。因为使用 IDE 烧录是不会主动擦除 UICR 的，会导致 reset 引脚的配置没有改变。</description></item><item><title>备忘杂记</title><link>https://xianii.gitee.io/wedoc/notes/memo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/memo/</guid><description>Gitea添加TeX支持 例: $CheckSum = \sum_5^n n \oplus A_n$ 和 $x = {-b \pm \sqrt{b^2-4ac} \over 2a}$
+去掉CONFIG_GPIO_AS_PINRESET宏，重新完全编译。 使用nrfjrog -eraseuicr擦除 UICR 区域。因为使用 IDE 烧录是不会主动擦除 UICR 的，会导致 reset 引脚的配置没有改变。</description></item><item><title>Zephyr笔记</title><link>https://xianii.gitee.io/wedoc/notes/zephyrnote/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/zephyrnote/</guid><description>本笔记编写于 Zephyr:2.4.99 | SDK:0.11.4
+0. 环境安装 参照官方文档，在 WSL on windows 和 Ubuntu 系统均成立。
+烧录工具 一些板子默认的烧录工具为 nrfjprog，访问nRF Command Line Tools安装
+一些板子默认的烧录工具为 pyocd，如无意外，会在安装依赖时自动安装上。
+手动则使用 pip3 install pyocd 来安装。安装时，可使用 pip3 install -i &amp;lt;src&amp;gt; 指定国内源提升速度。
+pip国内源：
+阿里源: https://mirrors.aliyun.com/pypi/simple/
+清华源: https://pypi.tuna.tsinghua.edu.cn/simple/
+中科大源: https://pypi.mirrors.ustc.edu.cn/simple/
+Ubuntu 下安装 nrfjprog:
+Ubuntu 下使用 ln -s &amp;lt;src&amp;gt; &amp;lt;des&amp;gt; 命令在 /sbin 创建 nrfjprog 的软链接 (注意 src 应当使用绝对路径)，支持安装 deb 包的系统可以直接使用 sudo dpkg -i &amp;lt;deb&amp;gt; 安装
+WSL:
+WSL 环境下可能缺少依赖，需要手动安装 sudo apt install libtinfo5 libncurses5</description></item><item><title>备忘杂记</title><link>https://xianii.gitee.io/wedoc/notes/memo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/memo/</guid><description>Gitea添加TeX支持 例: $CheckSum = \sum_5^n n \oplus A_n$ 和 $x = {-b \pm \sqrt{b^2-4ac} \over 2a}$
 在templates/custom目录下新建header.tmpl，内容如下：
 &amp;lt;script&amp;gt; MathJax = { tex: { inlineMath: [[&amp;#39;$&amp;#39;, &amp;#39;$&amp;#39;], [&amp;#39;\\(&amp;#39;, &amp;#39;\\)&amp;#39;]], displayMath: [[&amp;#34;$$&amp;#34;, &amp;#34;$$&amp;#34;], [&amp;#34;\\[&amp;#34;, &amp;#34;\\]&amp;#34;]] }, svg: { fontCache: &amp;#39;global&amp;#39; } }; &amp;lt;/script&amp;gt; &amp;lt;script type=&amp;#34;text/javascript&amp;#34; id=&amp;#34;MathJax-script&amp;#34; async src=&amp;#34;https://cdn.bootcdn.net/ajax/libs/mathjax/3.0.5/es5/tex-svg.js&amp;#34;&amp;gt; &amp;lt;/script&amp;gt; 渲染方式可以更改为如下面的其他方式等：
 &amp;lt;script src=&amp;quot;https://cdn.bootcdn.net/ajax/libs/mathjax/3.0.5/es5/tex-chtml.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;quot;https://cdn.bootcdn.net/ajax/libs/mathjax/3.0.5/es5/tex-mml-svg.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;quot;https://cdn.bootcdn.net/ajax/libs/mathjax/3.0.5/es5/tex-mml-chtml.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;</description></item></channel></rss>
