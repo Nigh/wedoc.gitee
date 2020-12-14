@@ -28,7 +28,7 @@ nRF52 使用P0.21作为IO口 编译时更改
 下载 http://openocd.org/getting-openocd/ 安装 直接安装，并将\bin目录添加进入环境变量PATH即可。</description></item><item><title>TDM-GCC[Win]</title><link>https://xianii.gitee.io/wedoc/docs/tools/tdm-gcc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/docs/tools/tdm-gcc/</guid><description>为Windows提供GCC工具。
 备选方案是使用MSYS2安装。需要注意的是，在MSYS2中安装的工具链，要在MSYS2的MINGW终端中使用。
 下载 https://jmeubank.github.io/tdm-gcc/download/ 安装 安装完成后，将/bin目录添加进入环境变量PATH即可。</description></item><item><title>Zephyr笔记</title><link>https://xianii.gitee.io/wedoc/notes/zephyrnote/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/zephyrnote/</guid><description>本笔记编写于 Zephyr:2.4.99 | SDK:0.11.4
-0. 环境安装 参照官方文档，在 WSL on windows 和 Ubuntu 系统均成立。
+A. 环境搭建 0. 环境安装 参照官方文档，在 WSL on windows 和 Ubuntu 系统均成立。
 烧录工具 一些板子默认的烧录工具为 nrfjprog，访问nRF Command Line Tools安装
 一些板子默认的烧录工具为 pyocd，如无意外，会在安装依赖时自动安装上。
 手动则使用 pip3 install pyocd 来安装。安装时，可使用 pip3 install -i &amp;lt;src&amp;gt; 指定国内源提升速度。

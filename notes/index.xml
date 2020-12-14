@@ -14,7 +14,7 @@ nRF52接仿真器能运行接电源不能运行 可能原因有：
 **解决：**对需要使用 fds 写入的数据均使用强制 word 对齐。在 SES 中可使用__ALIGN(4)
 nRF52 使用P0.21作为IO口 编译时更改
 去掉CONFIG_GPIO_AS_PINRESET宏，重新完全编译。 使用nrfjrog -eraseuicr擦除 UICR 区域。因为使用 IDE 烧录是不会主动擦除 UICR 的，会导致 reset 引脚的配置没有改变。</description></item><item><title>Zephyr笔记</title><link>https://xianii.gitee.io/wedoc/notes/zephyrnote/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/zephyrnote/</guid><description>本笔记编写于 Zephyr:2.4.99 | SDK:0.11.4
-0. 环境安装 参照官方文档，在 WSL on windows 和 Ubuntu 系统均成立。
+A. 环境搭建 0. 环境安装 参照官方文档，在 WSL on windows 和 Ubuntu 系统均成立。
 烧录工具 一些板子默认的烧录工具为 nrfjprog，访问nRF Command Line Tools安装
 一些板子默认的烧录工具为 pyocd，如无意外，会在安装依赖时自动安装上。
 手动则使用 pip3 install pyocd 来安装。安装时，可使用 pip3 install -i &amp;lt;src&amp;gt; 指定国内源提升速度。
