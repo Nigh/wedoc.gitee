@@ -25,10 +25,17 @@ pip国内源：
 Ubuntu 下安装 nrfjprog:
 Ubuntu 下使用 ln -s &amp;lt;src&amp;gt; &amp;lt;des&amp;gt; 命令在 /sbin 创建 nrfjprog 的软链接 (注意 src 应当使用绝对路径)，支持安装 deb 包的系统可以直接使用 sudo dpkg -i &amp;lt;deb&amp;gt; 安装
 WSL:
-WSL 环境下可能缺少依赖，需要手动安装 sudo apt install libtinfo5 libncurses5</description></item><item><title>备忘杂记</title><link>https://xianii.gitee.io/wedoc/notes/memo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/memo/</guid><description>zsh + oh my zsh 首先：sudo apt install zsh -y
+WSL 环境下可能缺少依赖，需要手动安装 sudo apt install libtinfo5 libncurses5</description></item><item><title>备忘杂记</title><link>https://xianii.gitee.io/wedoc/notes/memo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/memo/</guid><description>zsh + oh my zsh + theme 首先：sudo apt install zsh -y
 然后：wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh 下载安装脚本。由于魔女结界的存在，可能需要使用爱与魔法。
 chmod +x install.sh 最后运行安装脚本即可。
-Gitea添加TeX支持 例: $CheckSum = \sum_5^n n \oplus A_n$ 和 $x = {-b \pm \sqrt{b^2-4ac} \over 2a}$
-在templates/custom目录下新建header.tmpl，内容如下：
-&amp;lt;script&amp;gt; MathJax = { tex: { inlineMath: [[&amp;#39;$&amp;#39;, &amp;#39;$&amp;#39;], [&amp;#39;\\(&amp;#39;, &amp;#39;\\)&amp;#39;]], displayMath: [[&amp;#34;$$&amp;#34;, &amp;#34;$$&amp;#34;], [&amp;#34;\\[&amp;#34;, &amp;#34;\\]&amp;#34;]] }, svg: { fontCache: &amp;#39;global&amp;#39; } }; &amp;lt;/script&amp;gt; &amp;lt;script type=&amp;#34;text/javascript&amp;#34; id=&amp;#34;MathJax-script&amp;#34; async src=&amp;#34;https://cdn.bootcdn.net/ajax/libs/mathjax/3.0.5/es5/tex-svg.js&amp;#34;&amp;gt; &amp;lt;/script&amp;gt; 渲染方式可以更改为如下面的其他方式等：
-&amp;lt;script src=&amp;quot;https://cdn.bootcdn.net/ajax/libs/mathjax/3.0.5/es5/tex-chtml.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;quot;https://cdn.bootcdn.net/ajax/libs/mathjax/3.0.5/es5/tex-mml-svg.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;quot;https://cdn.</description></item></channel></rss>
+安装主题 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+然后：修改 ~/.zshrc 的 ZSH_THEME=&amp;quot;powerlevel10k/powerlevel10k&amp;quot;
+处于魔女结界内的用户可以使用 gitee 源替代：git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+gdbgui + arm cross debug 安装 gdbgui: https://www.gdbgui.com/installation/
+然后需要编译一个交叉调试版本的 gdb。 首先下载 gdb 源码：https://www.gnu.org/software/gdb/download/
+解压源码，进入源码目录。
+安装编译依赖：sudo apt install texinfo
+以 linux 调试 arm 为例：
+执行 ./configure --host=x86_64-pc-linux-gnu --build=x86_64-pc-linux-gnu --target=arm-none-eabi 配置编译参数。
+编译 make -j8
+安装 sudo make install</description></item></channel></rss>
