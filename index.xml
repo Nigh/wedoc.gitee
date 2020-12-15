@@ -46,10 +46,10 @@ chmod +x install.sh 最后运行安装脚本即可。
 然后：修改 ~/.zshrc 的 ZSH_THEME=&amp;quot;powerlevel10k/powerlevel10k&amp;quot;
 处于魔女结界内的用户可以使用 gitee 源替代：git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 重启 shell，运行 zsh 进行配置。
-gdbgui + arm cross debug 安装 gdbgui: https://www.gdbgui.com/installation/
+gdbgui + arm cross debug 参考：https://www.gdbgui.com/guides/
+安装 gdbgui: https://www.gdbgui.com/installation/
 然后需要编译一个交叉调试版本的 gdb。 首先下载 gdb 源码：https://www.gnu.org/software/gdb/download/
 解压源码，进入源码目录。
 安装编译依赖：sudo apt install texinfo
 以 linux 调试 arm 为例：
-执行 ./configure --host=x86_64-pc-linux-gnu --build=x86_64-pc-linux-gnu --target=arm-none-eabi 配置编译参数。
-编译 make -j8</description></item></channel></rss>
+执行 ./configure --host=x86_64-pc-linux-gnu --build=x86_64-pc-linux-gnu --target=arm-none-eabi 配置编译参数。</description></item></channel></rss>
