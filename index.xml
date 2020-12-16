@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>闲一文档</title><link>https://xianii.gitee.io/wedoc/</link><description>Recent content on 闲一文档</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><atom:link href="https://xianii.gitee.io/wedoc/index.xml" rel="self" type="application/rss+xml"/><item><title>ARM-GCC</title><link>https://xianii.gitee.io/wedoc/docs/tools/gnu-arm-gcc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/docs/tools/gnu-arm-gcc/</guid><description>提供ARM GCC工具。
-下载安装 Ubuntu sudo apt install gcc-arm-none-eabiWindows 下载 https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads 安装 直接安装，并将\bin目录添加进入环境变量PATH即可。 备选方案是使用MSYS2安装。需要注意的是，在MSYS2中安装的工具链，要在MSYS2的MINGW终端中使用。</description></item><item><title>gdbgui[Linux]</title><link>https://xianii.gitee.io/wedoc/docs/tools/gdbgui/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/docs/tools/gdbgui/</guid><description>官方在0.14.0.0版本移除了对windows的支持，windows用户可以自行摸索安装0.13.2.1之前的版本。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>闲一文档</title><link>https://xianii.gitee.io/wedoc/</link><description>Recent content on 闲一文档</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><atom:link href="https://xianii.gitee.io/wedoc/index.xml" rel="self" type="application/rss+xml"/><item><title>ARM-GCC</title><link>https://xianii.gitee.io/wedoc/docs/tools/arm-gcc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/docs/tools/arm-gcc/</guid><description>提供ARM GCC工具。
+下载安装 Ubuntu sudo apt install gcc-arm-none-eabi
+Windows 下载 https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads 安装 直接安装，并将\bin目录添加进入环境变量PATH即可。 建议使用MSYS2安装。需要注意的是，在MSYS2中安装的工具链，要在MSYS2的MINGW终端中使用。</description></item><item><title>gdbgui[Linux]</title><link>https://xianii.gitee.io/wedoc/docs/tools/gdbgui/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/docs/tools/gdbgui/</guid><description>官方在0.14.0.0版本移除了对windows的支持，windows用户可以自行摸索安装0.13.2.1之前的版本。
 安装 安装依赖：sudo apt-get install gdb python3 官方推荐使用pipx安装，先安装pipx python3 -m pip install --user pipx python3 -m userpath append ~/.local/bin 重启终端以便刷新userpath 安装gdbgui：pipx install gdbgui</description></item><item><title>make[Win]</title><link>https://xianii.gitee.io/wedoc/docs/tools/gnu-make/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/docs/tools/gnu-make/</guid><description>为Windows提供make工具。
-GNU make是一个维护截止于2006年的项目，可以考虑使用MSYS2来安装make工具链。
+GNU make是一个维护截止于2006年的项目，建议使用MSYS2来安装make工具链。
 下载 http://gnuwin32.sourceforge.net/packages/make.htm 安装 直接安装，并将\bin目录添加进入环境变量PATH即可。</description></item><item><title>MSYS2[Win]</title><link>https://xianii.gitee.io/wedoc/docs/tools/msys2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/docs/tools/msys2/</guid><description>MSYS2是一个Windows上的软件分发和构建平台。集合了许多用于软件构建的库和工具。
 下载 https://www.msys2.org/ 安装完成后，打开MSYS2的终端，以下命令均需要在MSYS2的终端中使用。
 首先，更换软件源，修改/msys64/etc/pacman.d中的三个mirrorlist文件，将国内源放到最前面。
@@ -21,10 +22,11 @@ gap_conn_cfg.event_length默认值为3，其为一个以1.25ms为单位的窗口
 考虑调整晶振精度参数，降低精度要求：比如从20ppm改为50ppm
 参考资料： https://devzone.nordicsemi.com/f/nordic-q-a/29786/ble_hci_connection_timeout-and-nrf_clock_lf_xtal_accuracy_xx_ppm/118161#118161
 nRF52接仿真器能运行接电源不能运行 可能原因有：
-软件使能了 DCDC，但硬件未有外部 DCDC 电路。关闭 DCDC 可修复。 printf 重定向问题。Case ID: 207373 nRF52 FDS库在o2优化等级报错 **问题：**在o2优化等级下，被写入的数据指针会有非 word 对齐的情况，此时会报错。
-**解决：**对需要使用 fds 写入的数据均使用强制 word 对齐。在 SES 中可使用__ALIGN(4)
+软件使能了 DCDC，但硬件未有外部 DCDC 电路。关闭 DCDC 可修复。 printf 重定向问题。Case ID: 207373 nRF52 FDS库在o2优化等级报错 问题： 在o2优化等级下，被写入的数据指针会有非 word 对齐的情况，此时会报错。
+解决： 对需要使用 fds 写入的数据均使用强制 word 对齐。在 SES 中可使用__ALIGN(4)
 nRF52 使用P0.21作为IO口 编译时更改
-去掉CONFIG_GPIO_AS_PINRESET宏，重新完全编译。 使用nrfjrog -eraseuicr擦除 UICR 区域。因为使用 IDE 烧录是不会主动擦除 UICR 的，会导致 reset 引脚的配置没有改变。</description></item><item><title>OpenOCD</title><link>https://xianii.gitee.io/wedoc/docs/tools/openocd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/docs/tools/openocd/</guid><description> Ubuntu sudo apt install openocdWindows 备选方案是使用MSYS2安装。需要注意的是，在MSYS2中安装的工具链，要在MSYS2的MINGW终端中使用。
+去掉CONFIG_GPIO_AS_PINRESET宏，重新完全编译。 使用nrfjrog -eraseuicr擦除 UICR 区域。因为使用 IDE 烧录是不会主动擦除 UICR 的，会导致 reset 引脚的配置没有改变。</description></item><item><title>OpenOCD</title><link>https://xianii.gitee.io/wedoc/docs/tools/openocd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/docs/tools/openocd/</guid><description>Ubuntu sudo apt install openocd
+Windows 备选方案是使用MSYS2安装。需要注意的是，在MSYS2中安装的工具链，要在MSYS2的MINGW终端中使用。
 下载 http://openocd.org/getting-openocd/ 安装 直接安装，并将\bin目录添加进入环境变量PATH即可。</description></item><item><title>TDM-GCC[Win]</title><link>https://xianii.gitee.io/wedoc/docs/tools/tdm-gcc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/docs/tools/tdm-gcc/</guid><description>为Windows提供GCC工具。
 备选方案是使用MSYS2安装。需要注意的是，在MSYS2中安装的工具链，要在MSYS2的MINGW终端中使用。
 下载 https://jmeubank.github.io/tdm-gcc/download/ 安装 安装完成后，将/bin目录添加进入环境变量PATH即可。</description></item><item><title>Zephyr笔记</title><link>https://xianii.gitee.io/wedoc/notes/zephyrnote/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/zephyrnote/</guid><description>本笔记编写于 Zephyr:2.4.99 | SDK:0.11.4
@@ -32,24 +34,17 @@ A. 环境搭建 0. 环境安装 参照官方文档，在 WSL on windows 和 Ubun
 烧录工具 一些板子默认的烧录工具为 nrfjprog，访问nRF Command Line Tools安装
 一些板子默认的烧录工具为 pyocd，如无意外，会在安装依赖时自动安装上。
 手动则使用 pip3 install pyocd 来安装。安装时，可使用 pip3 install -i &amp;lt;src&amp;gt; 指定国内源提升速度。
-pip国内源：
+pip国内源
 阿里源: https://mirrors.aliyun.com/pypi/simple/
 清华源: https://pypi.tuna.tsinghua.edu.cn/simple/
 中科大源: https://pypi.mirrors.ustc.edu.cn/simple/
-Ubuntu 下安装 nrfjprog:
+Ubuntu 下安装 nrfjprog
 Ubuntu 下使用 ln -s &amp;lt;src&amp;gt; &amp;lt;des&amp;gt; 命令在 /sbin 创建 nrfjprog 的软链接 (注意 src 应当使用绝对路径)，支持安装 deb 包的系统可以直接使用 sudo dpkg -i &amp;lt;deb&amp;gt; 安装
-WSL:
-WSL 环境下可能缺少依赖，需要手动安装 sudo apt install libtinfo5 libncurses5</description></item><item><title>备忘杂记</title><link>https://xianii.gitee.io/wedoc/notes/memo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/memo/</guid><description>zsh + oh my zsh + theme 首先：sudo apt install zsh -y
-然后：wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh 下载安装脚本。由于魔女结界的存在，可能需要使用爱与魔法。
-chmod +x install.sh 最后运行安装脚本即可。
-安装主题 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-然后：修改 ~/.zshrc 的 ZSH_THEME=&amp;quot;powerlevel10k/powerlevel10k&amp;quot;
-处于魔女结界内的用户可以使用 gitee 源替代：git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-重启 shell，运行 zsh 进行配置。
-gdbgui + arm cross debug 参考：https://www.gdbgui.com/guides/
-安装 gdbgui: https://www.gdbgui.com/installation/
-然后需要编译一个交叉调试版本的 gdb。 首先下载 gdb 源码：https://www.gnu.org/software/gdb/download/
-解压源码，进入源码目录。
-安装编译依赖：sudo apt install texinfo
-以 linux 调试 arm 为例：
-执行 ./configure --host=x86_64-pc-linux-gnu --build=x86_64-pc-linux-gnu --target=arm-none-eabi 配置编译参数。</description></item></channel></rss>
+WSL 环境下可能缺少依赖，需要手动安装 sudo apt install libtinfo5 libncurses5</description></item><item><title>备忘杂记</title><link>https://xianii.gitee.io/wedoc/notes/memo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/memo/</guid><description>爱与魔法 Git 设置：
+git config --global http.proxy http://127.0.0.1:1080 git config --global https.proxy https://127.0.0.1:1080 取消：
+git config --global --unset http.proxy git config --global --unset https.proxy Linux shell 设置：
+export http_proxy=http://127.0.0.1:1080 export https_proxy=https://127.0.0.1:1080 export https_proxy=&amp;quot;socks5://127.0.0.1:1080&amp;quot; 取消：
+命令只对当前终端生效，重启终端即可 或者unset http_proxy Powershell $Env:http_proxy=&amp;quot;http://127.0.0.1:1080&amp;quot;; $Env:https_proxy=&amp;quot;http://127.0.0.1:1080&amp;quot;
+cmd 设置：
+set http_proxy=http://127.0.0.1:1080 set https_proxy=http://127.0.0.1:1080 set http_proxy_user=user set http_proxy_pass=pass set https_proxy_user=user set https_proxy_pass=pass 取消：
+set http_proxy= set https_proxy= 验证 由于 ping 不走代理，可以使用 curl -v https://www.</description></item></channel></rss>
