@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Zephyr笔记 on 闲一文档</title><link>https://xianii.gitee.io/wedoc/notes/zephyr/</link><description>Recent content in Zephyr笔记 on 闲一文档</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><atom:link href="https://xianii.gitee.io/wedoc/notes/zephyr/index.xml" rel="self" type="application/rss+xml"/><item><title>Zephyr-初探</title><link>https://xianii.gitee.io/wedoc/notes/zephyr/zephyrnote-0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/zephyr/zephyrnote-0/</guid><description>环境搭建 0. 环境安装 参照官方文档，在 WSL on windows 和 Ubuntu 系统均成立。
+烧录工具 一些板子默认的烧录工具为 nrfjprog，访问nRF Command Line Tools安装
+一些板子默认的烧录工具为 pyocd，如无意外，会在安装依赖时自动安装上。
+手动则使用 pip3 install pyocd 来安装。安装时，可使用 pip3 install -i &amp;lt;src&amp;gt; 指定国内源提升速度。
+pip国内源
+阿里源: https://mirrors.aliyun.com/pypi/simple/
+清华源: https://pypi.tuna.tsinghua.edu.cn/simple/
+中科大源: https://pypi.mirrors.ustc.edu.cn/simple/
+Ubuntu 下安装 nrfjprog
+Ubuntu 下使用 ln -s &amp;lt;src&amp;gt; &amp;lt;des&amp;gt; 命令在 /sbin 创建 nrfjprog 的软链接 (注意 src 应当使用绝对路径)，支持安装 deb 包的系统可以直接使用 sudo dpkg -i &amp;lt;deb&amp;gt; 安装
+WSL 环境下可能缺少依赖，需要手动安装 sudo apt install libtinfo5 libncurses5
+使用 west init 的包可以拷贝至其他环境，避免重复下载耗费大量时间</description></item><item><title>Zephyr-涉水</title><link>https://xianii.gitee.io/wedoc/notes/zephyr/zephyrnote-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/zephyr/zephyrnote-1/</guid><description>自定义 自定义板子 参考链接：https://docs.zephyrproject.org/latest/application/index.html#custom-board-definition
+自定义板子有两种方式，一种是放到 zephyr/boards/arch/&amp;lt;board&amp;gt; 路径下，一种是放到项目的路径下 &amp;lt;project path&amp;gt;/boards/arch/&amp;lt;board&amp;gt;
+前者将自定义的板子加入了 zephyr 的 device tree，直接通过 west build -b &amp;lt;board name&amp;gt; 命令，west 就能找到板子。
+后者则需要指定板子定义的路径，但是可以避免污染原生环境：
+west build -b &amp;lt;board name&amp;gt; -- -DBOARD_ROOT=${PWD}</description></item></channel></rss>

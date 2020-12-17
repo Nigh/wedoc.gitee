@@ -29,8 +29,7 @@ nRF52 使用P0.21作为IO口 编译时更改
 Windows 备选方案是使用MSYS2安装。需要注意的是，在MSYS2中安装的工具链，要在MSYS2的MINGW终端中使用。
 下载 http://openocd.org/getting-openocd/ 安装 直接安装，并将\bin目录添加进入环境变量PATH即可。</description></item><item><title>TDM-GCC[Win]</title><link>https://xianii.gitee.io/wedoc/docs/tools/tdm-gcc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/docs/tools/tdm-gcc/</guid><description>为Windows提供GCC工具。
 备选方案是使用MSYS2安装。需要注意的是，在MSYS2中安装的工具链，要在MSYS2的MINGW终端中使用。
-下载 https://jmeubank.github.io/tdm-gcc/download/ 安装 安装完成后，将/bin目录添加进入环境变量PATH即可。</description></item><item><title>Zephyr笔记</title><link>https://xianii.gitee.io/wedoc/notes/zephyrnote/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/zephyrnote/</guid><description>本笔记编写于 Zephyr:2.4.99 | SDK:0.11.4
-A. 环境搭建 0. 环境安装 参照官方文档，在 WSL on windows 和 Ubuntu 系统均成立。
+下载 https://jmeubank.github.io/tdm-gcc/download/ 安装 安装完成后，将/bin目录添加进入环境变量PATH即可。</description></item><item><title>Zephyr-初探</title><link>https://xianii.gitee.io/wedoc/notes/zephyr/zephyrnote-0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/zephyr/zephyrnote-0/</guid><description>环境搭建 0. 环境安装 参照官方文档，在 WSL on windows 和 Ubuntu 系统均成立。
 烧录工具 一些板子默认的烧录工具为 nrfjprog，访问nRF Command Line Tools安装
 一些板子默认的烧录工具为 pyocd，如无意外，会在安装依赖时自动安装上。
 手动则使用 pip3 install pyocd 来安装。安装时，可使用 pip3 install -i &amp;lt;src&amp;gt; 指定国内源提升速度。
@@ -40,7 +39,26 @@ pip国内源
 中科大源: https://pypi.mirrors.ustc.edu.cn/simple/
 Ubuntu 下安装 nrfjprog
 Ubuntu 下使用 ln -s &amp;lt;src&amp;gt; &amp;lt;des&amp;gt; 命令在 /sbin 创建 nrfjprog 的软链接 (注意 src 应当使用绝对路径)，支持安装 deb 包的系统可以直接使用 sudo dpkg -i &amp;lt;deb&amp;gt; 安装
-WSL 环境下可能缺少依赖，需要手动安装 sudo apt install libtinfo5 libncurses5</description></item><item><title>备忘杂记</title><link>https://xianii.gitee.io/wedoc/notes/memo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/memo/</guid><description>爱与魔法 Git 设置：
+WSL 环境下可能缺少依赖，需要手动安装 sudo apt install libtinfo5 libncurses5
+使用 west init 的包可以拷贝至其他环境，避免重复下载耗费大量时间</description></item><item><title>Zephyr-涉水</title><link>https://xianii.gitee.io/wedoc/notes/zephyr/zephyrnote-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/zephyr/zephyrnote-1/</guid><description>自定义 自定义板子 参考链接：https://docs.zephyrproject.org/latest/application/index.html#custom-board-definition
+自定义板子有两种方式，一种是放到 zephyr/boards/arch/&amp;lt;board&amp;gt; 路径下，一种是放到项目的路径下 &amp;lt;project path&amp;gt;/boards/arch/&amp;lt;board&amp;gt;
+前者将自定义的板子加入了 zephyr 的 device tree，直接通过 west build -b &amp;lt;board name&amp;gt; 命令，west 就能找到板子。
+后者则需要指定板子定义的路径，但是可以避免污染原生环境：
+west build -b &amp;lt;board name&amp;gt; -- -DBOARD_ROOT=${PWD}</description></item><item><title>备忘杂记</title><link>https://xianii.gitee.io/wedoc/notes/memo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/memo/</guid><description>zsh + oh my zsh + theme 首先：sudo apt install zsh -y
+然后：wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh 下载安装脚本。由于魔女结界的存在，可能需要使用爱与魔法。
+chmod +x install.sh 最后运行安装脚本即可。
+修改默认shell为zsh后，需要记得对于~/.bashrc的操作都要换成~/.zshrc
+安装主题 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+然后：修改 ~/.zshrc 的 ZSH_THEME=&amp;quot;powerlevel10k/powerlevel10k&amp;quot;
+处于魔女结界内的用户可以使用 gitee 源替代：git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+重启 shell，运行 zsh 进行配置。
+gdbgui + arm cross debug 参考：https://www.gdbgui.com/guides/
+安装 gdbgui: https://www.gdbgui.com/installation/
+然后需要编译一个交叉调试版本的 gdb。 首先下载 gdb 源码：https://www.gnu.org/software/gdb/download/
+解压源码，进入源码目录。
+安装编译依赖：sudo apt install texinfo
+以 linux 调试 arm 为例：
+执行 ./configure --host=x86_64-pc-linux-gnu --build=x86_64-pc-linux-gnu --target=arm-none-eabi 配置编译参数。</description></item><item><title>愛ど魔法</title><link>https://xianii.gitee.io/wedoc/notes/magic/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/magic/</guid><description>终端魔法 Git 设置：
 git config --global http.proxy http://127.0.0.1:1080 git config --global https.proxy https://127.0.0.1:1080 取消：
 git config --global --unset http.proxy git config --global --unset https.proxy Linux shell 设置：
 export http_proxy=http://127.0.0.1:1080 export https_proxy=https://127.0.0.1:1080 export https_proxy=&amp;quot;socks5://127.0.0.1:1080&amp;quot; 取消：
