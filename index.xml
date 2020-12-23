@@ -58,11 +58,10 @@ gdbgui + arm cross debug 参考：https://www.gdbgui.com/guides/
 解压源码，进入源码目录。
 安装编译依赖：sudo apt install texinfo
 以 linux 调试 arm 为例：
-执行 ./configure --host=x86_64-pc-linux-gnu --build=x86_64-pc-linux-gnu --target=arm-none-eabi 配置编译参数。</description></item><item><title>愛ど魔法</title><link>https://xianii.gitee.io/wedoc/notes/magic/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/magic/</guid><description>终端魔法 Git 设置：
+执行 ./configure --host=x86_64-pc-linux-gnu --build=x86_64-pc-linux-gnu --target=arm-none-eabi 配置编译参数。</description></item><item><title>愛と魔法</title><link>https://xianii.gitee.io/wedoc/notes/magic/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/magic/</guid><description>终端魔法 Git 设置：
 git config --global http.proxy http://127.0.0.1:1080 git config --global https.proxy https://127.0.0.1:1080 取消：
 git config --global --unset http.proxy git config --global --unset https.proxy Linux shell 设置：
 export http_proxy=http://127.0.0.1:1080 export https_proxy=https://127.0.0.1:1080 export https_proxy=&amp;quot;socks5://127.0.0.1:1080&amp;quot; 取消：
-命令只对当前终端生效，重启终端即可 或者unset http_proxy Powershell $Env:http_proxy=&amp;quot;http://127.0.0.1:1080&amp;quot;; $Env:https_proxy=&amp;quot;http://127.0.0.1:1080&amp;quot;
-cmd 设置：
+命令只对当前终端生效，重启终端即可 或者unset http_proxy Powershell $Env:http_proxy=&amp;quot;http://127.0.0.1:1080&amp;quot;; $Env:https_proxy=&amp;quot;http://127.0.0.1:1080&amp;quot; cmd 设置：
 set http_proxy=http://127.0.0.1:1080 set https_proxy=http://127.0.0.1:1080 set http_proxy_user=user set http_proxy_pass=pass set https_proxy_user=user set https_proxy_pass=pass 取消：
 set http_proxy= set https_proxy= 验证 由于 ping 不走代理，可以使用 curl -v https://www.</description></item></channel></rss>
