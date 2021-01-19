@@ -13,21 +13,22 @@ nRF52接仿真器能运行接电源不能运行 可能原因有：
 软件使能了 DCDC，但硬件未有外部 DCDC 电路。关闭 DCDC 可修复。 printf 重定向问题。Case ID: 207373 nRF52 FDS库在o2优化等级报错 问题： 在o2优化等级下，被写入的数据指针会有非 word 对齐的情况，此时会报错。
 解决： 对需要使用 fds 写入的数据均使用强制 word 对齐。在 SES 中可使用__ALIGN(4)
 nRF52 使用P0.21作为IO口 编译时更改
-去掉CONFIG_GPIO_AS_PINRESET宏，重新完全编译。 使用nrfjrog -eraseuicr擦除 UICR 区域。因为使用 IDE 烧录是不会主动擦除 UICR 的，会导致 reset 引脚的配置没有改变。</description></item><item><title>备忘杂记</title><link>https://xianii.gitee.io/wedoc/notes/memo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/memo/</guid><description>zsh + oh my zsh + theme 首先：sudo apt install zsh -y
-然后：wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh 下载安装脚本。由于魔女结界的存在，可能需要使用爱与魔法。
-chmod +x install.sh 最后运行安装脚本即可。
-修改默认shell为zsh后，需要记得对于~/.bashrc的操作都要换成~/.zshrc
-安装主题 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-然后：修改 ~/.zshrc 的 ZSH_THEME=&amp;quot;powerlevel10k/powerlevel10k&amp;quot;
-处于魔女结界内的用户可以使用 gitee 源替代：git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-重启 shell，运行 zsh 进行配置。
-gdbgui + arm cross debug 参考：https://www.gdbgui.com/guides/
-安装 gdbgui: https://www.gdbgui.com/installation/
-然后需要编译一个交叉调试版本的 gdb。 首先下载 gdb 源码：https://www.gnu.org/software/gdb/download/
-解压源码，进入源码目录。
-安装编译依赖：sudo apt install texinfo
-以 linux 调试 arm 为例：
-执行 ./configure --host=x86_64-pc-linux-gnu --build=x86_64-pc-linux-gnu --target=arm-none-eabi 配置编译参数。</description></item><item><title>愛と魔法</title><link>https://xianii.gitee.io/wedoc/notes/magic/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/magic/</guid><description>终端魔法 Git 设置：
+去掉CONFIG_GPIO_AS_PINRESET宏，重新完全编译。 使用nrfjrog -eraseuicr擦除 UICR 区域。因为使用 IDE 烧录是不会主动擦除 UICR 的，会导致 reset 引脚的配置没有改变。</description></item><item><title>备忘杂记</title><link>https://xianii.gitee.io/wedoc/notes/memo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/memo/</guid><description>windows terminal + oh-my-posh3 + theme 为win10配置windows terminal的主题。
+当无法识别AllowPrerelease参数时，可能是因为PowershellGet版本太旧。
+通过Get-module PowershellGet取得当前版本
+通过Find-module PowershellGet取得最新版本
+通过Install-Module PowershellGet -Force安装最新版本
+安装 Install-Module posh-git -Scope CurrentUser
+Install-Module oh-my-posh -AllowPrerelease -Scope CurrentUser
+如遇魔女结界，则使用爱与魔法。
+配置 使用notepad $PROFILE编辑powershell的配置文件，添加如下内容：
+Import-Module posh-git Import-Module oh-my-posh Set-Theme Paradox 打开windows terminal的配置文件，为powershell添加如下配置，可以使得终端打开时的默认路径即为打开的目录。
+&amp;#34;startingDirectory&amp;#34; : null 然后更改字体和颜色主题，可以直接添加到defaults里面，这样直接对所有终端都生效：
+&amp;#34;fontFace&amp;#34;: &amp;#34;Monofurbold NF&amp;#34;, &amp;#34;colorScheme&amp;#34;:&amp;#34;Tango Dark&amp;#34; 其中，字体需要安装，地址见参考文献。
+官方使用的字体是Meslo LGM NF，体积比较大(63.8Mb)。
+这里选用的是微软出品的Cascadia Code PL体积比较小(7.8Mb)。
+根据官方描述，任意的Nerd Font应当都是兼容的。可以在nerdfonts.com网站浏览。
+参考文献: https://github.com/JanDeDobbeleer/oh-my-posh3 https://ohmyposh.dev/docs/ https://www.nerdfonts.com/ https://github.com/microsoft/cascadia-code/releases https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Monofur.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Meslo.zip zsh + oh my zsh + theme 为Linux安装zsh shell并配置主题。</description></item><item><title>愛と魔法</title><link>https://xianii.gitee.io/wedoc/notes/magic/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/magic/</guid><description>终端魔法 Git 设置：
 git config --global http.proxy http://127.0.0.1:1080 git config --global https.proxy https://127.0.0.1:1080 取消：
 git config --global --unset http.proxy git config --global --unset https.proxy Linux shell 设置：
 export http_proxy=http://127.0.0.1:1080 export https_proxy=https://127.0.0.1:1080 export https_proxy=&amp;quot;socks5://127.0.0.1:1080&amp;quot; 取消：
