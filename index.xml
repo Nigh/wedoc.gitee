@@ -10,7 +10,7 @@ GNU make是一个维护截止于2006年的项目，建议使用MSYS2来安装mak
 如果主体需要更新，会要求关闭终端再重新打开，然后才能更新package：pacman -Su
 其中:
 &amp;gt; 静态库的路径为: msys2\usr\lib msys2\mingw64\lib &amp;gt; 头文件的路径为: msys2\usr\include msys2\mingw64\include 注意： 在MSYS2中安装的工具链，应当在MSYS2的MINGW终端中使用，否则会发生错误。
-安装package GCC: pacman -S gcc make: pacman -S make ARM-GCC: pacman -S mingw-w64-x86_64-arm-none-eabi-gcc OpenOCD: pacman -S mingw-w64-x86_64-openocd 使用windows terminal https://www.msys2.org/docs/terminals/</description></item><item><title>nRF52开发笔记</title><link>https://xianii.gitee.io/wedoc/notes/nrf52note/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/nrf52note/</guid><description>nRF52从机发送缓冲区溢出报错 BLE从机发送缓冲区溢出会导致发送中断，并在下一次发送时发生断开。需要捕获和处理报错。
+安装package GCC: pacman -S gcc make: pacman -S make ARM-GCC: pacman -S mingw-w64-x86_64-arm-none-eabi-gcc OpenOCD: pacman -S mingw-w64-x86_64-openocd CMake: pacman -S cmake ninja: pacman -S ninja 使用windows terminal https://www.msys2.org/docs/terminals/</description></item><item><title>nRF52开发笔记</title><link>https://xianii.gitee.io/wedoc/notes/nrf52note/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/nrf52note/</guid><description>nRF52从机发送缓冲区溢出报错 BLE从机发送缓冲区溢出会导致发送中断，并在下一次发送时发生断开。需要捕获和处理报错。
 可以额外添加一级缓冲，并对超出缓冲区的部分做丢弃处理。
 nRF52 广播包拼接 当m_advertising.adv_data.adv_data.len与其中EIR长度之和不等时，发生的解析错误可能将相邻广播包连接起来。
 其机制还需进一步分析了解。
