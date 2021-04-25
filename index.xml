@@ -4,7 +4,10 @@ Windows 下载 https://developer.arm.com/tools-and-software/open-source-software
 安装 安装依赖：sudo apt-get install gdb python3 官方推荐使用pipx安装，先安装pipx python3 -m pip install --user pipx python3 -m userpath append ~/.local/bin 重启终端以便刷新userpath 安装gdbgui：pipx install gdbgui</description></item><item><title>make[Win]</title><link>https://xianii.gitee.io/wedoc/docs/tools/gnu-make/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/docs/tools/gnu-make/</guid><description>为Windows提供make工具。
 GNU make是一个维护截止于2006年的项目，建议使用MSYS2来安装make工具链。
 下载 http://gnuwin32.sourceforge.net/packages/make.htm 安装 直接安装，并将\bin目录添加进入环境变量PATH即可。</description></item><item><title>MSYS2[Win]</title><link>https://xianii.gitee.io/wedoc/docs/tools/msys2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/docs/tools/msys2/</guid><description>MSYS2是一个Windows上的软件分发和构建平台。集合了许多用于软件构建的库和工具。
-下载 https://www.msys2.org/ 安装完成后，打开MSYS2的终端，以下命令均需要在MSYS2的终端中使用。
+安装 官网：https://www.msys2.org/
+推荐使用chocolatey安装:
+choco install msys2
+安装完成后，打开MSYS2的终端，以下命令均需要在MSYS2的终端中使用。
 首先，更换软件源，修改/msys64/etc/pacman.d中的三个mirrorlist文件，将国内源放到最前面。
 重新打开msys终端，更新package库：pacman -Syu
 如果主体需要更新，会要求关闭终端再重新打开，然后才能更新package：pacman -Su
@@ -55,7 +58,7 @@ west build -b &amp;lt;board name&amp;gt; -- -DBOARD_ROOT=${PWD}</description></i
 Install-Module oh-my-posh -AllowPrerelease -Scope CurrentUser
 如遇魔女结界，则使用爱与魔法。
 配置 使用notepad $PROFILE编辑powershell的配置文件，添加如下内容：
-Import-Module posh-git Import-Module oh-my-posh Set-Theme Paradox 打开windows terminal的配置文件，为powershell添加如下配置，可以使得终端打开时的默认路径即为打开的目录。
+Import-Module posh-git Import-Module oh-my-posh Get-PoshThemes Set-PoshPrompt -Theme Paradox 打开windows terminal的配置文件，为powershell添加如下配置，可以使得终端打开时的默认路径即为打开的目录。
 &amp;#34;startingDirectory&amp;#34; : null 然后更改字体和颜色主题，可以直接添加到defaults里面，这样直接对所有终端都生效：
 &amp;#34;fontFace&amp;#34;: &amp;#34;Monofurbold NF&amp;#34;, &amp;#34;colorScheme&amp;#34;:&amp;#34;Tango Dark&amp;#34; 其中，字体需要安装，地址见参考文献。
 官方使用的字体是Meslo LGM NF，体积比较大(63.8Mb)。

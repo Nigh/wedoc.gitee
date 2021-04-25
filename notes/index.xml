@@ -22,7 +22,7 @@ nRF52 使用P0.21作为IO口 编译时更改
 Install-Module oh-my-posh -AllowPrerelease -Scope CurrentUser
 如遇魔女结界，则使用爱与魔法。
 配置 使用notepad $PROFILE编辑powershell的配置文件，添加如下内容：
-Import-Module posh-git Import-Module oh-my-posh Set-Theme Paradox 打开windows terminal的配置文件，为powershell添加如下配置，可以使得终端打开时的默认路径即为打开的目录。
+Import-Module posh-git Import-Module oh-my-posh Get-PoshThemes Set-PoshPrompt -Theme Paradox 打开windows terminal的配置文件，为powershell添加如下配置，可以使得终端打开时的默认路径即为打开的目录。
 &amp;#34;startingDirectory&amp;#34; : null 然后更改字体和颜色主题，可以直接添加到defaults里面，这样直接对所有终端都生效：
 &amp;#34;fontFace&amp;#34;: &amp;#34;Monofurbold NF&amp;#34;, &amp;#34;colorScheme&amp;#34;:&amp;#34;Tango Dark&amp;#34; 其中，字体需要安装，地址见参考文献。
 官方使用的字体是Meslo LGM NF，体积比较大(63.8Mb)。
