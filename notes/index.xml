@@ -34,4 +34,24 @@ git config --global --unset http.proxy git config --global --unset https.proxy L
 export http_proxy=http://127.0.0.1:1080 export https_proxy=https://127.0.0.1:1080 export https_proxy=&amp;quot;socks5://127.0.0.1:1080&amp;quot; 取消：
 命令只对当前终端生效，重启终端即可 或者unset http_proxy Powershell $Env:http_proxy=&amp;quot;http://127.0.0.1:1080&amp;quot;; $Env:https_proxy=&amp;quot;http://127.0.0.1:1080&amp;quot; cmd 设置：
 set http_proxy=http://127.0.0.1:1080 set https_proxy=http://127.0.0.1:1080 set http_proxy_user=user set http_proxy_pass=pass set https_proxy_user=user set https_proxy_pass=pass 取消：
-set http_proxy= set https_proxy= 验证 由于 ping 不走代理，可以使用 curl -v https://www.</description></item></channel></rss>
+set http_proxy= set https_proxy= 验证 由于 ping 不走代理，可以使用 curl -v https://www.</description></item><item><title>技术架构</title><link>https://xianii.gitee.io/wedoc/notes/frameworks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/frameworks/</guid><description>Electron 使用 JavaScript，HTML 和 CSS 构建跨平台的桌面应用
+优点：
+缺点：
+Flutter2 创建高性能、跨平台的移动应用
+优点：
+缺点：
+Golang + Fyne 基于 Golang 的跨平台Material Design风格的GUI库
+优点：
+缺点：
+Golang + Wails 使用 Golang 和 Web 技术构建桌面应用
+优点：
+后端使用标准Golang
+使用任意前端技术构建UI
+单条命令绑定Golang方法到前端
+原生渲染，无需嵌入浏览器
+共享事件系统
+原生文件对话框
+强大的命令行工具
+多平台
+缺点：
+Arduino 优点：</description></item></channel></rss>
