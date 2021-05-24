@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>闲一文档</title><link>https://xianii.gitee.io/wedoc/</link><description>Recent content on 闲一文档</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><atom:link href="https://xianii.gitee.io/wedoc/index.xml" rel="self" type="application/rss+xml"/><item><title>ARM-GCC</title><link>https://xianii.gitee.io/wedoc/docs/tools/arm-gcc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/docs/tools/arm-gcc/</guid><description>提供ARM GCC工具。
 下载安装 Ubuntu sudo apt install gcc-arm-none-eabi
 Windows 下载 https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads 安装 直接安装，并将\bin目录添加进入环境变量PATH即可。 建议使用MSYS2安装。需要注意的是，在MSYS2中安装的工具链，要在MSYS2的MINGW终端中使用。</description></item><item><title>gdbgui[Linux]</title><link>https://xianii.gitee.io/wedoc/docs/tools/gdbgui/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/docs/tools/gdbgui/</guid><description>官方在0.14.0.0版本移除了对windows的支持，windows用户可以自行摸索安装0.13.2.1之前的版本。
-安装 安装依赖：sudo apt-get install gdb python3 官方推荐使用pipx安装，先安装pipx python3 -m pip install --user pipx python3 -m userpath append ~/.local/bin 重启终端以便刷新userpath 安装gdbgui：pipx install gdbgui</description></item><item><title>make[Win]</title><link>https://xianii.gitee.io/wedoc/docs/tools/gnu-make/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/docs/tools/gnu-make/</guid><description>为Windows提供make工具。
+安装 安装依赖：sudo apt-get install gdb python3 官方推荐使用pipx安装，先安装pipx python3 -m pip install --user pipx python3 -m userpath append ~/.local/bin 重启终端以便刷新userpath 安装gdbgui：pipx install gdbgui</description></item><item><title>Linux</title><link>https://xianii.gitee.io/wedoc/notes/osnotes/linux/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/osnotes/linux/</guid><description> 出于站点性质考虑，仅列出较为通用的软件，比较专业的软件就不在此列出了
+Coming soon &amp;hellip;&amp;hellip;</description></item><item><title>make[Win]</title><link>https://xianii.gitee.io/wedoc/docs/tools/gnu-make/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/docs/tools/gnu-make/</guid><description>为Windows提供make工具。
 GNU make是一个维护截止于2006年的项目，建议使用MSYS2来安装make工具链。
 下载 http://gnuwin32.sourceforge.net/packages/make.htm 安装 直接安装，并将\bin目录添加进入环境变量PATH即可。</description></item><item><title>MSYS2[Win]</title><link>https://xianii.gitee.io/wedoc/docs/tools/msys2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/docs/tools/msys2/</guid><description>MSYS2是一个Windows上的软件分发和构建平台。集合了许多用于软件构建的库和工具。
 安装 官网：https://www.msys2.org/
@@ -34,7 +35,20 @@ Windows 备选方案是使用MSYS2安装。需要注意的是，在MSYS2中安�
 所以请使用windows的预编译二进制版本。
 下载 http://openocd.org/getting-openocd/ 预编译二进制(win) https://gnutoolchains.com/arm-eabi/openocd/ https://github.com/xpack-dev-tools/openocd-xpack/releases 安装 直接安装，并将\bin目录添加进入环境变量PATH即可。</description></item><item><title>TDM-GCC[Win]</title><link>https://xianii.gitee.io/wedoc/docs/tools/tdm-gcc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/docs/tools/tdm-gcc/</guid><description>为Windows提供GCC工具。
 备选方案是使用MSYS2安装。需要注意的是，在MSYS2中安装的工具链，要在MSYS2的MINGW终端中使用。
-下载 https://jmeubank.github.io/tdm-gcc/download/ 安装 安装完成后，将/bin目录添加进入环境变量PATH即可。</description></item><item><title>Zephyr-初探</title><link>https://xianii.gitee.io/wedoc/notes/zephyr/zephyrnote-0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/zephyr/zephyrnote-0/</guid><description>环境搭建 0. 环境安装 参照官方文档，在 WSL on windows 和 Ubuntu 系统均成立。
+下载 https://jmeubank.github.io/tdm-gcc/download/ 安装 安装完成后，将/bin目录添加进入环境变量PATH即可。</description></item><item><title>Windows</title><link>https://xianii.gitee.io/wedoc/notes/osnotes/windows/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/osnotes/windows/</guid><description>出于站点性质考虑，仅列出较为通用的软件，比较专业的软件就不在此列出了
+IrfanView 还有更好用的免费图片浏览器么
+PotPlayer 还有更好用的免费视频播放器么
+OBS 就算你不直播，录屏也是极好的
+Everything 强大的索引与搜索引擎
+7zip 压缩与解压
+PowerToys windows的实用工具包
+Motrix 免费好用的下载工具
+Typora 所见即所得的markdown编辑器
+Sandboxie 沙盒工具
+Windows Terminal 漂亮好用的终端
+chocolatey Choco包管理器
+ACG Player (UWP) 视频播放器，在UWP环境下可用
+WolframAlpha (UWP) 科学计算，虽然不是免费的，但是因为自己已经购买了UWP的版本，而且太过于好用，所以还是列在这里了</description></item><item><title>Zephyr-初探</title><link>https://xianii.gitee.io/wedoc/notes/zephyr/zephyrnote-0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/zephyr/zephyrnote-0/</guid><description>环境搭建 0. 环境安装 参照官方文档，在 WSL on windows 和 Ubuntu 系统均成立。
 烧录工具 一些板子默认的烧录工具为 nrfjprog，访问nRF Command Line Tools安装
 一些板子默认的烧录工具为 pyocd，如无意外，会在安装依赖时自动安装上。
 手动则使用 pip3 install pyocd 来安装。安装时，可使用 pip3 install -i &amp;lt;src&amp;gt; 指定国内源提升速度。
