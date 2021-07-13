@@ -30,9 +30,9 @@ nRF52接仿真器能运行接电源不能运行 可能原因有：
 解决： 对需要使用 fds 写入的数据均使用强制 word 对齐。在 SES 中可使用__ALIGN(4)
 nRF52 使用P0.21作为IO口 编译时更改
 去掉CONFIG_GPIO_AS_PINRESET宏，重新完全编译。 使用nrfjrog -eraseuicr擦除 UICR 区域。因为使用 IDE 烧录是不会主动擦除 UICR 的，会导致 reset 引脚的配置没有改变。</description></item><item><title>OpenOCD</title><link>https://xianii.gitee.io/wedoc/docs/tools/openocd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/docs/tools/openocd/</guid><description>Ubuntu sudo apt install openocd
-Windows 备选方案是使用MSYS2安装。需要注意的是，在MSYS2中安装的工具链，要在MSYS2的MINGW终端中使用。
-使用MSYS2安装的openocd在windows上烧录时会报Error: couldn't bind gdb to socket: No error错误。
-所以请使用windows的预编译二进制版本。
+Windows 备选方案是使用choco安装。
+使用choco安装的openocd最新版本为0.10.0，与0.11.0版本命令不兼容。
+可以使用下方xpack的预编译版本
 下载 http://openocd.org/getting-openocd/ 预编译二进制(win) https://gnutoolchains.com/arm-eabi/openocd/ https://github.com/xpack-dev-tools/openocd-xpack/releases 安装 直接安装，并将\bin目录添加进入环境变量PATH即可。</description></item><item><title>TDM-GCC[Win]</title><link>https://xianii.gitee.io/wedoc/docs/tools/tdm-gcc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/docs/tools/tdm-gcc/</guid><description>为Windows提供GCC工具。
 备选方案是使用MSYS2安装。需要注意的是，在MSYS2中安装的工具链，要在MSYS2的MINGW终端中使用。
 下载 https://jmeubank.github.io/tdm-gcc/download/ 安装 安装完成后，将/bin目录添加进入环境变量PATH即可。</description></item><item><title>Windows</title><link>https://xianii.gitee.io/wedoc/notes/osnotes/windows/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/osnotes/windows/</guid><description>出于站点性质考虑，仅列出较为通用的软件，比较专业的软件就不在此列出了
