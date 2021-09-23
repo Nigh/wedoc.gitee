@@ -1,4 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>指导笔记 on 闲一文档</title><link>https://xianii.gitee.io/wedoc/notes/</link><description>Recent content in 指导笔记 on 闲一文档</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><atom:link href="https://xianii.gitee.io/wedoc/notes/index.xml" rel="self" type="application/rss+xml"/><item><title>nRF52开发笔记</title><link>https://xianii.gitee.io/wedoc/notes/nrf52note/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/nrf52note/</guid><description>设置最大MTU与开启扩展广播 指定#define NRF_SDH_BLE_GATT_MAX_MTU_SIZE 247宏开启最大MTU
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>指导笔记 on 闲一文档</title><link>https://xianii.gitee.io/wedoc/notes/</link><description>Recent content in 指导笔记 on 闲一文档</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><atom:link href="https://xianii.gitee.io/wedoc/notes/index.xml" rel="self" type="application/rss+xml"/><item><title>nRF52开发笔记</title><link>https://xianii.gitee.io/wedoc/notes/nrf52note/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/nrf52note/</guid><description>在GNU toolchain中更改UICR配置 以SES环境使能CONFIG_NFCT_PINS_AS_GPIOS为例。仅仅在预编译宏中添加CONFIG_NFCT_PINS_AS_GPIOS宏定义是无效的。需要修改linker文件。
+这里，我们需要在0x1000120C地址写入0xFFFFFFFE。首先在linker文件的MEMORY段中定义这个地址如下：
+UICR_NFC_MEM (r) : ORIGIN = 0x1000120C, LENGTH = 0x04 然后新建一个SECTIONS描述如下：
+SECTIONS { .uicr_nfc : { KEEP(*(.uicr_nfc)) } &amp;gt; UICR_NFC_MEM } 接下来我们在一个确定会编译的c文件中加入如下代码，一般我们放在main.c中：
+#ifdef CONFIG_NFCT_PINS_AS_GPIOS volatile uint32_t UICR_ADDR_0x20C __attribute__((section(&amp;#34;uicr_nfc&amp;#34;))) = 0xFFFFFFFE; #endif 其中，变量名可以随意定义。宏定义也非必须。
+最后，我们对芯片执行全部擦除，然后项目执行rebuild，之后再烧录就可以正常写入UICR配置了。
+设置最大MTU与开启扩展广播 指定#define NRF_SDH_BLE_GATT_MAX_MTU_SIZE 247宏开启最大MTU
 在advertising_init()中添加init.config.ble_adv_extended_enabled = true;配置即可直接使能扩展广播
 nRF52从机发送缓冲区溢出报错 BLE从机发送缓冲区溢出会导致发送中断，并在下一次发送时发生断开。需要捕获和处理报错。
 可以额外添加一级缓冲，并对超出缓冲区的部分做丢弃处理。
@@ -8,14 +14,7 @@ nRF52 蓝牙更新广播信息 使用ble_advertising_advdata_update更新广播�
 在广播开启时，更改内容实时生效，更改广播长度在下一次开启广播时生效
 nRF52连接间隔与通信带宽问题 在CSW-V1上，在250ms连接间隔下，使用request方式通信只能达到2Hz左右的频率。 在CSW-V1上，在250ms连接间隔下，使用command方式通信，延迟在1-2个连接间隔。 在CSW-B5上，在250ms连接间隔下，使用command方式通信，延迟在几十ms之内，且在80ms内即返回了24个数据包。同时，测试功耗没有异常。 更改gap_conn_cfg.event_length至16可实现每个连接间隔可返回20+个数据包
 gap_conn_cfg.event_length默认值为3，其为一个以1.25ms为单位的窗口时间，每个连接间隔能够通信的时长由这个窗口的时间决定。
-蓝牙在有效距离内易断开 断开原因为:0x08(timeout)
-考虑调整晶振精度参数，降低精度要求：比如从20ppm改为50ppm
-参考资料： https://devzone.nordicsemi.com/f/nordic-q-a/29786/ble_hci_connection_timeout-and-nrf_clock_lf_xtal_accuracy_xx_ppm/118161#118161
-nRF52接仿真器能运行接电源不能运行 可能原因有：
-软件使能了 DCDC，但硬件未有外部 DCDC 电路。关闭 DCDC 可修复。 printf 重定向问题。Case ID: 207373 nRF52 FDS库在o2优化等级报错 问题： 在o2优化等级下，被写入的数据指针会有非 word 对齐的情况，此时会报错。
-解决： 对需要使用 fds 写入的数据均使用强制 word 对齐。在 SES 中可使用__ALIGN(4)
-nRF52 使用P0.21作为IO口 编译时更改
-去掉CONFIG_GPIO_AS_PINRESET宏，重新完全编译。 使用nrfjrog -eraseuicr擦除 UICR 区域。因为使用 IDE 烧录是不会主动擦除 UICR 的，会导致 reset 引脚的配置没有改变。</description></item><item><title>备忘杂记</title><link>https://xianii.gitee.io/wedoc/notes/memo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/memo/</guid><description>windows terminal + oh-my-posh3 + theme 为win10配置windows terminal的主题。
+蓝牙在有效距离内易断开 断开原因为:0x08(timeout)</description></item><item><title>备忘杂记</title><link>https://xianii.gitee.io/wedoc/notes/memo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/memo/</guid><description>windows terminal + oh-my-posh3 + theme 为win10配置windows terminal的主题。
 当无法识别AllowPrerelease参数时，可能是因为PowershellGet版本太旧。
 通过Get-module PowershellGet取得当前版本
 通过Find-module PowershellGet取得最新版本

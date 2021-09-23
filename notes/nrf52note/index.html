@@ -1,32 +1,310 @@
-<!doctype html><html lang=en class="js csstransforms3d"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.85.0"><meta name=description content><link rel=icon href=/wedoc/images/favicon.png type=image/png><title>nRF52开发笔记 - 闲一文档</title><link href=/wedoc/css/nucleus.css?1626687596 rel=stylesheet><link href=/wedoc/css/fontawesome-all.min.css?1626687596 rel=stylesheet><link href=/wedoc/css/hybrid.css?1626687596 rel=stylesheet><link href=/wedoc/css/featherlight.min.css?1626687596 rel=stylesheet><link href=/wedoc/css/perfect-scrollbar.min.css?1626687596 rel=stylesheet><link href=/wedoc/css/auto-complete.css?1626687596 rel=stylesheet><link href=/wedoc/css/atom-one-dark-reasonable.css?1626687596 rel=stylesheet><link href=/wedoc/css/theme.css?1626687596 rel=stylesheet><link href=/wedoc/css/hugo-theme.css?1626687596 rel=stylesheet><link href=/wedoc/css/theme-blue.css?1626687596 rel=stylesheet><script src=/wedoc/js/jquery-3.3.1.min.js?1626687596></script><style>:root #header+#content>#left>#rlblock_left{display:none!important}</style><script>MathJax={tex:{inlineMath:[['$','$']],displayMath:[["$$","$$"]]},svg:{fontCache:'global'}}</script><script type=text/javascript id=MathJax-script async src=https://cdn.bootcdn.net/ajax/libs/mathjax/3.0.5/es5/tex-svg.js></script></head><body data-url=/wedoc/notes/nrf52note/><nav id=sidebar class=showVisitedLinks><div id=header-wrapper><div id=header><svg id="组_1" data-name="组 1" xmlns="http://www.w3.org/2000/svg" width="203.5" height="64" viewBox="0 0 407 128"><defs><style>.cls-1{fill:#fff}.cls-1,.cls-2{fill-rule:evenodd}.cls-2{fill:none;stroke:#fff;stroke-width:16px}</style></defs><path id="闲一·文档" class="cls-1" d="M164.95 45.612q-1.275-1.611-2.756-3.276t-2.886-3.068l-2.964 1.82q1.455 1.456 2.938 3.2t2.7 3.406a21.5 21.5.0 011.9 3.016L167 48.524A28.369 28.369.0 00164.95 45.612zm-6.89 40.664V50.656h-3.692v35.62h3.692zM187.18 68.96q-1.769-2.079-3.848-4.316T179.12 60.38h11.336V57.1H177.768v-7.02h-3.484V57.1h-11.96v3.28h10.348a35.9 35.9.0 01-5.122 7.67 26.2 26.2.0 01-6.474 5.538 13.72 13.72.0 011.352 1.326 10.545 10.545.0 011.144 1.482A30.735 30.735.0 00169.4 71.04a38.9 38.9.0 004.888-7.228v18.1h3.484v-18.2q2.755 2.86 5.382 5.954a58 58 0 014.134 5.382l2.808-2.34Q188.948 71.04 187.18 68.96zM168.616 41.036v3.64h25.272V80.712a1.434 1.434.0 01-.286.988 1.339 1.339.0 01-1.014.312q-.78.052-3.068.052t-4.992-.1a11.549 11.549.0 01.884 1.9 8.947 8.947.0 01.52 1.95q3.432.0 5.772-.13a13.4 13.4.0 003.64-.6 3.036 3.036.0 001.794-1.456 6.729 6.729.0 00.494-2.912V41.036H168.616zm35.88 23.14h47.216V59.964H204.5v4.212zm64.584 2.73a3.235 3.235.0 001.482-1.482 4.626 4.626.0 000-4.16 3.242 3.242.0 00-1.482-1.482 4.626 4.626.0 00-4.16.0 3.232 3.232.0 00-1.482 1.482 4.626 4.626.0 000 4.16 3.226 3.226.0 001.482 1.482A4.626 4.626.0 00269.08 66.906zM308.366 42.6Q307.2 40.36 306 38.54l-4 1.144a42.039 42.039.0 012.288 4.238 27.6 27.6.0 011.56 3.926l4.212-1.352A24.368 24.368.0 00308.366 42.6zm3.926 18.72a43.86 43.86.0 01-6.136 7.852 50.3 50.3.0 01-6.474-8.086 57.305 57.305.0 01-4.862-9.334h22.048A53.129 53.129.0 01312.292 61.316zM329.4 47.952H282.808v3.8h8.008a67.964 67.964.0 005.382 10.92 53.66 53.66.0 007.1 9.2Q294.872 79 282.08 82.636a19.881 19.881.0 011.3 1.768 17.869 17.869.0 011.092 1.82 72.2 72.2.0 0011.882-4.94 51.944 51.944.0 009.75-6.656 53.022 53.022.0 0021.32 11.388 19.622 19.622.0 011.222-1.872 14.172 14.172.0 011.43-1.716 51.518 51.518.0 01-11.44-4.212 50.883 50.883.0 01-9.568-6.344 49.573 49.573.0 006.916-9 63.587 63.587.0 005.252-11.128H329.4v-3.8zm45.318-1.56q-.858 2.289-1.82 4.472t-1.846 3.8l3.12.988q.884-1.611 1.9-3.692t2-4.342q.987-2.262 1.872-4.342l-3.8-1.092Q375.575 44.1 374.718 46.392zm-15.34 4q-.807-2.028-1.742-4.134t-1.82-3.978l-3.172 1.144q.884 1.821 1.768 3.978t1.664 4.212a35.672 35.672.0 011.2 3.666l3.38-1.3Q360.184 52.424 359.378 50.4zm-8.112 12.688q-.858-1.2-1.9-2.678t-2-2.782q-.963-1.3-1.534-1.976v-2.08h6.5v-3.64h-6.5V38.8H342.14V49.928h-7.488v3.64h6.812a59.413 59.413.0 01-2 7.254 66.037 66.037.0 01-2.808 6.942 33.122 33.122.0 01-3.146 5.408 18.612 18.612.0 011.118 1.664 19.267 19.267.0 01.962 1.768 36.516 36.516.0 003.536-6.656 78.85 78.85.0 003.016-8.476v24.8h3.692v-26q1.2 1.924 2.418 4.082t1.846 3.406l2.34-2.912A19.608 19.608.0 00351.266 63.084zM364.24 39.008V57.936H352.384v3.692h23.3v6.708H353.06v3.536h22.62v7.02H351.24v3.744h24.44V85.86h3.8V57.936H367.932V39.008H364.24z"/><path id="x" class="cls-1" d="M44.446 95.143v-.6a7.262 7.262.0 01.72-3.18q.72-1.5 1.5-2.94t1.68-2.82q.9-1.378 1.74-2.82l4.2-6.6 4.2 6.6q.838 1.44 1.74 2.82t1.68 2.82q.779 1.44 1.5 2.94a7.262 7.262.0 01.72 3.18v.6h14.16v-.6a13.153 13.153.0 00-.96-4.92q-.962-2.4-2.04-4.68t-2.28-4.5q-1.2-2.219-2.64-4.38l-7.92-12.72 7.92-12.72q1.44-2.16 2.64-4.38t2.28-4.5q1.08-2.278 2.04-4.68a13.146 13.146.0 00.96-4.92v-.6H64.126v.6a7.251 7.251.0 01-.72 3.18q-.72 1.5-1.5 2.94t-1.68 2.82q-.9 1.381-1.74 2.82l-4.2 6.6-4.2-6.6q-.841-1.44-1.74-2.82t-1.68-2.82q-.782-1.44-1.5-2.94a7.251 7.251.0 01-.72-3.18v-.6H30.286v.6a13.111 13.111.0 00.96 4.92q.959 2.4 2.04 4.68t2.28 4.5q1.2 2.222 2.64 4.38l7.92 12.72-7.92 12.72q-1.44 2.16-2.64 4.38t-2.28 4.5q-1.08 2.281-2.04 4.68a13.118 13.118.0 00-.96 4.92v.6h14.16z"/><path id="_1" data-name="1" class="cls-1" d="M96.272 95.167V59.887H90.608l-7.344 5.568 3.408 4.08 3.936-3.024V95.167h5.664z"/><path id="矩形_2" data-name="矩形 2" class="cls-2" d="M81 6h41V122H81m-34 0H7V6H47"/></svg></div><div class=searchbox><label for=search-by><i class="fas fa-search"></i></label>
+<!doctype html><html lang=en class="js csstransforms3d">
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=generator content="Hugo 0.88.1">
+<meta name=description content>
+<link rel=icon href=/wedoc/images/favicon.png type=image/png>
+<title>nRF52开发笔记 - 闲一文档</title>
+<link href=/wedoc/css/nucleus.css?1632396414 rel=stylesheet>
+<link href=/wedoc/css/fontawesome-all.min.css?1632396414 rel=stylesheet>
+<link href=/wedoc/css/hybrid.css?1632396414 rel=stylesheet>
+<link href=/wedoc/css/featherlight.min.css?1632396414 rel=stylesheet>
+<link href=/wedoc/css/perfect-scrollbar.min.css?1632396414 rel=stylesheet>
+<link href=/wedoc/css/auto-complete.css?1632396414 rel=stylesheet>
+<link href=/wedoc/css/atom-one-dark-reasonable.css?1632396414 rel=stylesheet>
+<link href=/wedoc/css/theme.css?1632396414 rel=stylesheet>
+<link href=/wedoc/css/hugo-theme.css?1632396414 rel=stylesheet>
+<link href=/wedoc/css/theme-blue.css?1632396414 rel=stylesheet>
+<script src=/wedoc/js/jquery-3.3.1.min.js?1632396414></script>
+<style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
+<script>MathJax={tex:{inlineMath:[['$','$']],displayMath:[["$$","$$"]]},svg:{fontCache:'global'}}</script>
+<script type=text/javascript id=MathJax-script async src=https://cdn.bootcdn.net/ajax/libs/mathjax/3.0.5/es5/tex-svg.js></script>
+</head>
+<body data-url=/wedoc/notes/nrf52note/>
+<nav id=sidebar class=showVisitedLinks>
+<div id=header-wrapper>
+<div id=header><svg id="组_1" data-name="组 1" xmlns="http://www.w3.org/2000/svg" width="203.5" height="64" viewBox="0 0 407 128"><defs><style>.cls-1{fill:#fff}.cls-1,.cls-2{fill-rule:evenodd}.cls-2{fill:none;stroke:#fff;stroke-width:16px}</style></defs><path id="闲一·文档" class="cls-1" d="M164.95 45.612q-1.275-1.611-2.756-3.276t-2.886-3.068l-2.964 1.82q1.455 1.456 2.938 3.2t2.7 3.406a21.5 21.5.0 011.9 3.016L167 48.524A28.369 28.369.0 00164.95 45.612zm-6.89 40.664V50.656h-3.692v35.62h3.692zM187.18 68.96q-1.769-2.079-3.848-4.316T179.12 60.38h11.336V57.1H177.768v-7.02h-3.484V57.1h-11.96v3.28h10.348a35.9 35.9.0 01-5.122 7.67 26.2 26.2.0 01-6.474 5.538 13.72 13.72.0 011.352 1.326 10.545 10.545.0 011.144 1.482A30.735 30.735.0 00169.4 71.04a38.9 38.9.0 004.888-7.228v18.1h3.484v-18.2q2.755 2.86 5.382 5.954a58 58 0 014.134 5.382l2.808-2.34Q188.948 71.04 187.18 68.96zM168.616 41.036v3.64h25.272V80.712a1.434 1.434.0 01-.286.988 1.339 1.339.0 01-1.014.312q-.78.052-3.068.052t-4.992-.1a11.549 11.549.0 01.884 1.9 8.947 8.947.0 01.52 1.95q3.432.0 5.772-.13a13.4 13.4.0 003.64-.6 3.036 3.036.0 001.794-1.456 6.729 6.729.0 00.494-2.912V41.036H168.616zm35.88 23.14h47.216V59.964H204.5v4.212zm64.584 2.73a3.235 3.235.0 001.482-1.482 4.626 4.626.0 000-4.16 3.242 3.242.0 00-1.482-1.482 4.626 4.626.0 00-4.16.0 3.232 3.232.0 00-1.482 1.482 4.626 4.626.0 000 4.16 3.226 3.226.0 001.482 1.482A4.626 4.626.0 00269.08 66.906zM308.366 42.6Q307.2 40.36 306 38.54l-4 1.144a42.039 42.039.0 012.288 4.238 27.6 27.6.0 011.56 3.926l4.212-1.352A24.368 24.368.0 00308.366 42.6zm3.926 18.72a43.86 43.86.0 01-6.136 7.852 50.3 50.3.0 01-6.474-8.086 57.305 57.305.0 01-4.862-9.334h22.048A53.129 53.129.0 01312.292 61.316zM329.4 47.952H282.808v3.8h8.008a67.964 67.964.0 005.382 10.92 53.66 53.66.0 007.1 9.2Q294.872 79 282.08 82.636a19.881 19.881.0 011.3 1.768 17.869 17.869.0 011.092 1.82 72.2 72.2.0 0011.882-4.94 51.944 51.944.0 009.75-6.656 53.022 53.022.0 0021.32 11.388 19.622 19.622.0 011.222-1.872 14.172 14.172.0 011.43-1.716 51.518 51.518.0 01-11.44-4.212 50.883 50.883.0 01-9.568-6.344 49.573 49.573.0 006.916-9 63.587 63.587.0 005.252-11.128H329.4v-3.8zm45.318-1.56q-.858 2.289-1.82 4.472t-1.846 3.8l3.12.988q.884-1.611 1.9-3.692t2-4.342q.987-2.262 1.872-4.342l-3.8-1.092Q375.575 44.1 374.718 46.392zm-15.34 4q-.807-2.028-1.742-4.134t-1.82-3.978l-3.172 1.144q.884 1.821 1.768 3.978t1.664 4.212a35.672 35.672.0 011.2 3.666l3.38-1.3Q360.184 52.424 359.378 50.4zm-8.112 12.688q-.858-1.2-1.9-2.678t-2-2.782q-.963-1.3-1.534-1.976v-2.08h6.5v-3.64h-6.5V38.8H342.14V49.928h-7.488v3.64h6.812a59.413 59.413.0 01-2 7.254 66.037 66.037.0 01-2.808 6.942 33.122 33.122.0 01-3.146 5.408 18.612 18.612.0 011.118 1.664 19.267 19.267.0 01.962 1.768 36.516 36.516.0 003.536-6.656 78.85 78.85.0 003.016-8.476v24.8h3.692v-26q1.2 1.924 2.418 4.082t1.846 3.406l2.34-2.912A19.608 19.608.0 00351.266 63.084zM364.24 39.008V57.936H352.384v3.692h23.3v6.708H353.06v3.536h22.62v7.02H351.24v3.744h24.44V85.86h3.8V57.936H367.932V39.008H364.24z"/><path id="x" class="cls-1" d="M44.446 95.143v-.6a7.262 7.262.0 01.72-3.18q.72-1.5 1.5-2.94t1.68-2.82q.9-1.378 1.74-2.82l4.2-6.6 4.2 6.6q.838 1.44 1.74 2.82t1.68 2.82q.779 1.44 1.5 2.94a7.262 7.262.0 01.72 3.18v.6h14.16v-.6a13.153 13.153.0 00-.96-4.92q-.962-2.4-2.04-4.68t-2.28-4.5q-1.2-2.219-2.64-4.38l-7.92-12.72 7.92-12.72q1.44-2.16 2.64-4.38t2.28-4.5q1.08-2.278 2.04-4.68a13.146 13.146.0 00.96-4.92v-.6H64.126v.6a7.251 7.251.0 01-.72 3.18q-.72 1.5-1.5 2.94t-1.68 2.82q-.9 1.381-1.74 2.82l-4.2 6.6-4.2-6.6q-.841-1.44-1.74-2.82t-1.68-2.82q-.782-1.44-1.5-2.94a7.251 7.251.0 01-.72-3.18v-.6H30.286v.6a13.111 13.111.0 00.96 4.92q.959 2.4 2.04 4.68t2.28 4.5q1.2 2.222 2.64 4.38l7.92 12.72-7.92 12.72q-1.44 2.16-2.64 4.38t-2.28 4.5q-1.08 2.281-2.04 4.68a13.118 13.118.0 00-.96 4.92v.6h14.16z"/><path id="_1" data-name="1" class="cls-1" d="M96.272 95.167V59.887H90.608l-7.344 5.568 3.408 4.08 3.936-3.024V95.167h5.664z"/><path id="矩形_2" data-name="矩形 2" class="cls-2" d="M81 6h41V122H81m-34 0H7V6H47"/></svg>
+</div>
+<div class=searchbox>
+<label for=search-by><i class="fas fa-search"></i></label>
 <input data-search-input id=search-by type=search placeholder=Search...>
-<span data-search-clear><i class="fas fa-times"></i></span></div><script type=text/javascript src=/wedoc/js/lunr.min.js?1626687596></script><script type=text/javascript src=/wedoc/js/auto-complete.js?1626687596></script><script type=text/javascript>var baseurl="https://xianii.gitee.io/wedoc/"</script><script type=text/javascript src=/wedoc/js/search.js?1626687596></script></div><section id=homelinks><ul><li><a class=padding href=/><i class="fas fa-home"></i> Home</a></li></ul></section><div class=highlightable><ul class=topics><li data-nav-id=/wedoc/docs/ title=开发环境 class=dd-item><a href=/wedoc/docs/>开发环境
-<i class="fas fa-check read-icon"></i></a><ul><li data-nav-id=/wedoc/docs/tools/ title=工具链 class=dd-item><a href=/wedoc/docs/tools/>工具链
-<i class="fas fa-check read-icon"></i></a><ul><li data-nav-id=/wedoc/docs/tools/arm-gcc/ title=ARM-GCC class=dd-item><a href=/wedoc/docs/tools/arm-gcc/>ARM-GCC
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/wedoc/docs/tools/gdbgui/ title=gdbgui[Linux] class=dd-item><a href=/wedoc/docs/tools/gdbgui/>gdbgui[Linux]
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/wedoc/docs/tools/gnu-make/ title=make[Win] class=dd-item><a href=/wedoc/docs/tools/gnu-make/>make[Win]
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/wedoc/docs/tools/msys2/ title=MSYS2[Win] class=dd-item><a href=/wedoc/docs/tools/msys2/>MSYS2[Win]
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/wedoc/docs/tools/openocd/ title=OpenOCD class=dd-item><a href=/wedoc/docs/tools/openocd/>OpenOCD
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/wedoc/docs/tools/tdm-gcc/ title=TDM-GCC[Win] class=dd-item><a href=/wedoc/docs/tools/tdm-gcc/>TDM-GCC[Win]
-<i class="fas fa-check read-icon"></i></a></li></ul></li><li data-nav-id=/wedoc/docs/env/ title=集成环境 class=dd-item><a href=/wedoc/docs/env/>集成环境
-<i class="fas fa-check read-icon"></i></a></li></ul></li><li data-nav-id=/wedoc/notes/ title=指导笔记 class="dd-item
-parent"><a href=/wedoc/notes/>指导笔记
-<i class="fas fa-check read-icon"></i></a><ul><li data-nav-id=/wedoc/notes/nrf52note/ title=nRF52开发笔记 class="dd-item active"><a href=/wedoc/notes/nrf52note/>nRF52开发笔记
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/wedoc/notes/zephyr/ title=Zephyr笔记 class=dd-item><a href=/wedoc/notes/zephyr/>Zephyr笔记
-<i class="fas fa-check read-icon"></i></a><ul><li data-nav-id=/wedoc/notes/zephyr/zephyrnote-0/ title=Zephyr-初探 class=dd-item><a href=/wedoc/notes/zephyr/zephyrnote-0/>Zephyr-初探
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/wedoc/notes/zephyr/zephyrnote-1/ title=Zephyr-涉水 class=dd-item><a href=/wedoc/notes/zephyr/zephyrnote-1/>Zephyr-涉水
-<i class="fas fa-check read-icon"></i></a></li></ul></li><li data-nav-id=/wedoc/notes/memo/ title=备忘杂记 class=dd-item><a href=/wedoc/notes/memo/>备忘杂记
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/wedoc/notes/magic/ title=愛と魔法 class=dd-item><a href=/wedoc/notes/magic/>愛と魔法
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/wedoc/notes/frameworks/ title=技术架构 class=dd-item><a href=/wedoc/notes/frameworks/>技术架构
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/wedoc/notes/osnotes/ title=装机笔记 class=dd-item><a href=/wedoc/notes/osnotes/>装机笔记
-<i class="fas fa-check read-icon"></i></a><ul><li data-nav-id=/wedoc/notes/osnotes/linux/ title=Linux class=dd-item><a href=/wedoc/notes/osnotes/linux/>Linux
-<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/wedoc/notes/osnotes/windows/ title=Windows class=dd-item><a href=/wedoc/notes/osnotes/windows/>Windows
-<i class="fas fa-check read-icon"></i></a></li></ul></li></ul></li><li data-nav-id=/wedoc/usage/ title=模板用例 class=dd-item><a href=/wedoc/usage/>模板用例
-<i class="fas fa-check read-icon"></i></a></li></ul><section id=prefooter><hr><ul><li><a class=padding href=# data-clear-history-toggle><i class="fas fa-history fa-fw"></i> Clear History</a></li></ul></section><section id=footer><p>Built with <a href=https://github.com/matcornic/hugo-theme-learn><i class="fas fa-heart"></i></a> from <a href=https://getgrav.org>Grav</a> and <a href=https://gohugo.io/>Hugo</a></p></section></div></nav><section id=body><div id=overlay></div><div class="padding highlightable"><div><div id=top-bar><div id=breadcrumbs itemscope itemtype=http://data-vocabulary.org/Breadcrumb><span id=sidebar-toggle-span><a href=# id=sidebar-toggle data-sidebar-toggle><i class="fas fa-bars"></i></a></span>
+<span data-search-clear><i class="fas fa-times"></i></span>
+</div>
+<script type=text/javascript src=/wedoc/js/lunr.min.js?1632396414></script>
+<script type=text/javascript src=/wedoc/js/auto-complete.js?1632396414></script>
+<script type=text/javascript>var baseurl="https://xianii.gitee.io/wedoc/"</script>
+<script type=text/javascript src=/wedoc/js/search.js?1632396414></script>
+</div>
+<section id=homelinks>
+<ul>
+<li>
+<a class=padding href=/><i class="fas fa-home"></i> Home</a>
+</li>
+</ul>
+</section>
+<div class=highlightable>
+<ul class=topics>
+<li data-nav-id=/wedoc/docs/ title=开发环境 class=dd-item>
+<a href=/wedoc/docs/>
+开发环境
+<i class="fas fa-check read-icon"></i>
+</a>
+<ul>
+<li data-nav-id=/wedoc/docs/tools/ title=工具链 class=dd-item>
+<a href=/wedoc/docs/tools/>
+工具链
+<i class="fas fa-check read-icon"></i>
+</a>
+<ul>
+<li data-nav-id=/wedoc/docs/tools/arm-gcc/ title=ARM-GCC class=dd-item>
+<a href=/wedoc/docs/tools/arm-gcc/>
+ARM-GCC
+<i class="fas fa-check read-icon"></i>
+</a>
+</li>
+<li data-nav-id=/wedoc/docs/tools/gdbgui/ title=gdbgui[Linux] class=dd-item>
+<a href=/wedoc/docs/tools/gdbgui/>
+gdbgui[Linux]
+<i class="fas fa-check read-icon"></i>
+</a>
+</li>
+<li data-nav-id=/wedoc/docs/tools/gnu-make/ title=make[Win] class=dd-item>
+<a href=/wedoc/docs/tools/gnu-make/>
+make[Win]
+<i class="fas fa-check read-icon"></i>
+</a>
+</li>
+<li data-nav-id=/wedoc/docs/tools/msys2/ title=MSYS2[Win] class=dd-item>
+<a href=/wedoc/docs/tools/msys2/>
+MSYS2[Win]
+<i class="fas fa-check read-icon"></i>
+</a>
+</li>
+<li data-nav-id=/wedoc/docs/tools/openocd/ title=OpenOCD class=dd-item>
+<a href=/wedoc/docs/tools/openocd/>
+OpenOCD
+<i class="fas fa-check read-icon"></i>
+</a>
+</li>
+<li data-nav-id=/wedoc/docs/tools/tdm-gcc/ title=TDM-GCC[Win] class=dd-item>
+<a href=/wedoc/docs/tools/tdm-gcc/>
+TDM-GCC[Win]
+<i class="fas fa-check read-icon"></i>
+</a>
+</li>
+</ul>
+</li>
+<li data-nav-id=/wedoc/docs/env/ title=集成环境 class=dd-item>
+<a href=/wedoc/docs/env/>
+集成环境
+<i class="fas fa-check read-icon"></i>
+</a>
+</li>
+</ul>
+</li>
+<li data-nav-id=/wedoc/notes/ title=指导笔记 class="dd-item
+parent">
+<a href=/wedoc/notes/>
+指导笔记
+<i class="fas fa-check read-icon"></i>
+</a>
+<ul>
+<li data-nav-id=/wedoc/notes/nrf52note/ title=nRF52开发笔记 class="dd-item active">
+<a href=/wedoc/notes/nrf52note/>
+nRF52开发笔记
+<i class="fas fa-check read-icon"></i>
+</a>
+</li>
+<li data-nav-id=/wedoc/notes/zephyr/ title=Zephyr笔记 class=dd-item>
+<a href=/wedoc/notes/zephyr/>
+Zephyr笔记
+<i class="fas fa-check read-icon"></i>
+</a>
+<ul>
+<li data-nav-id=/wedoc/notes/zephyr/zephyrnote-0/ title=Zephyr-初探 class=dd-item>
+<a href=/wedoc/notes/zephyr/zephyrnote-0/>
+Zephyr-初探
+<i class="fas fa-check read-icon"></i>
+</a>
+</li>
+<li data-nav-id=/wedoc/notes/zephyr/zephyrnote-1/ title=Zephyr-涉水 class=dd-item>
+<a href=/wedoc/notes/zephyr/zephyrnote-1/>
+Zephyr-涉水
+<i class="fas fa-check read-icon"></i>
+</a>
+</li>
+</ul>
+</li>
+<li data-nav-id=/wedoc/notes/memo/ title=备忘杂记 class=dd-item>
+<a href=/wedoc/notes/memo/>
+备忘杂记
+<i class="fas fa-check read-icon"></i>
+</a>
+</li>
+<li data-nav-id=/wedoc/notes/magic/ title=愛と魔法 class=dd-item>
+<a href=/wedoc/notes/magic/>
+愛と魔法
+<i class="fas fa-check read-icon"></i>
+</a>
+</li>
+<li data-nav-id=/wedoc/notes/frameworks/ title=技术架构 class=dd-item>
+<a href=/wedoc/notes/frameworks/>
+技术架构
+<i class="fas fa-check read-icon"></i>
+</a>
+</li>
+<li data-nav-id=/wedoc/notes/osnotes/ title=装机笔记 class=dd-item>
+<a href=/wedoc/notes/osnotes/>
+装机笔记
+<i class="fas fa-check read-icon"></i>
+</a>
+<ul>
+<li data-nav-id=/wedoc/notes/osnotes/linux/ title=Linux class=dd-item>
+<a href=/wedoc/notes/osnotes/linux/>
+Linux
+<i class="fas fa-check read-icon"></i>
+</a>
+</li>
+<li data-nav-id=/wedoc/notes/osnotes/windows/ title=Windows class=dd-item>
+<a href=/wedoc/notes/osnotes/windows/>
+Windows
+<i class="fas fa-check read-icon"></i>
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li data-nav-id=/wedoc/usage/ title=模板用例 class=dd-item>
+<a href=/wedoc/usage/>
+模板用例
+<i class="fas fa-check read-icon"></i>
+</a>
+</li>
+</ul>
+<section id=prefooter>
+<hr>
+<ul>
+<li><a class=padding href=# data-clear-history-toggle><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+</ul>
+</section>
+<section id=footer>
+<p>Built with <a href=https://github.com/matcornic/hugo-theme-learn><i class="fas fa-heart"></i></a> from <a href=https://getgrav.org>Grav</a> and <a href=https://gohugo.io/>Hugo</a></p>
+</section>
+</div>
+</nav>
+<section id=body>
+<div id=overlay></div>
+<div class="padding highlightable">
+<div>
+<div id=top-bar>
+<div id=breadcrumbs itemscope itemtype=http://data-vocabulary.org/Breadcrumb>
+<span id=sidebar-toggle-span>
+<a href=# id=sidebar-toggle data-sidebar-toggle>
+<i class="fas fa-bars"></i>
+</a>
+</span>
 <span id=toc-menu><i class="fas fa-list-alt"></i></span>
-<span class=links><a href=/wedoc/></a>> <a href=/wedoc/notes/>指导笔记</a> > nRF52开发笔记</span></div><div class=progress><div class=wrapper><nav id=TableOfContents><ul><li><a href=#设置最大mtu与开启扩展广播>设置最大MTU与开启扩展广播</a></li><li><a href=#nrf52从机发送缓冲区溢出报错>nRF52从机发送缓冲区溢出报错</a></li><li><a href=#nrf52-广播包拼接>nRF52 广播包拼接</a></li><li><a href=#nrf52-蓝牙更新广播信息>nRF52 蓝牙更新广播信息</a></li><li><a href=#nrf52连接间隔与通信带宽问题>nRF52连接间隔与通信带宽问题</a></li><li><a href=#蓝牙在有效距离内易断开>蓝牙在有效距离内易断开</a></li><li><a href=#nrf52接仿真器能运行接电源不能运行>nRF52接仿真器能运行接电源不能运行</a></li><li><a href=#nrf52-fds库在o2优化等级报错>nRF52 FDS库在o2优化等级报错</a></li><li><a href=#nrf52-使用p021作为io口>nRF52 使用P0.21作为IO口</a></li><li><a href=#nrf52-i2s驱动ws2812>nRF52 I2S驱动WS2812</a></li></ul></nav></div></div></div></div><div id=head-tags></div><div id=body-inner><h1>nRF52开发笔记</h1><h2 id=设置最大mtu与开启扩展广播>设置最大MTU与开启扩展广播</h2><p>指定<code>#define NRF_SDH_BLE_GATT_MAX_MTU_SIZE 247</code>宏开启最大<code>MTU</code></p><p>在<code>advertising_init()</code>中添加<code>init.config.ble_adv_extended_enabled = true;</code>配置即可直接使能扩展广播</p><h2 id=nrf52从机发送缓冲区溢出报错>nRF52从机发送缓冲区溢出报错</h2><p>BLE从机发送缓冲区溢出会导致发送中断，并在下一次发送时发生断开。需要捕获和处理报错。</p><p>可以额外添加一级缓冲，并对超出缓冲区的部分做丢弃处理。</p><hr><h2 id=nrf52-广播包拼接>nRF52 广播包拼接</h2><p>当<code>m_advertising.adv_data.adv_data.len</code>与其中<code>EIR</code>长度之和不等时，发生的解析错误可能将相邻广播包连接起来。</p><p>其机制还需进一步分析了解。</p><hr><h2 id=nrf52-蓝牙更新广播信息>nRF52 蓝牙更新广播信息</h2><p>使用<code>ble_advertising_advdata_update</code>更新广播信息时。</p><p>在广播开启时，更改内容实时生效，更改广播长度在下一次开启广播时生效</p><hr><h2 id=nrf52连接间隔与通信带宽问题>nRF52连接间隔与通信带宽问题</h2><ul><li>在<code>CSW-V1</code>上，在<code>250ms</code>连接间隔下，使用<code>request</code>方式通信只能达到2Hz左右的频率。</li><li>在<code>CSW-V1</code>上，在<code>250ms</code>连接间隔下，使用<code>command</code>方式通信，延迟在1-2个连接间隔。</li><li>在<code>CSW-B5</code>上，在<code>250ms</code>连接间隔下，使用<code>command</code>方式通信，延迟在几十ms之内，且在80ms内即返回了24个数据包。同时，测试功耗没有异常。</li></ul><p>更改<code>gap_conn_cfg.event_length</code>至<code>16</code>可实现每个连接间隔可返回<code>20+</code>个数据包</p><p><code>gap_conn_cfg.event_length</code>默认值为<code>3</code>，其为一个以<code>1.25ms</code>为单位的窗口时间，每个连接间隔能够通信的时长由这个窗口的时间决定。</p><hr><h2 id=蓝牙在有效距离内易断开>蓝牙在有效距离内易断开</h2><p>断开原因为:0x08(<code>timeout</code>)</p><p>考虑调整晶振精度参数，降低精度要求：比如从<code>20ppm</code>改为<code>50ppm</code></p><p>参考资料：
-<a href=https://devzone.nordicsemi.com/f/nordic-q-a/29786/ble_hci_connection_timeout-and-nrf_clock_lf_xtal_accuracy_xx_ppm/118161#118161>https://devzone.nordicsemi.com/f/nordic-q-a/29786/ble_hci_connection_timeout-and-nrf_clock_lf_xtal_accuracy_xx_ppm/118161#118161</a></p><hr><h2 id=nrf52接仿真器能运行接电源不能运行>nRF52接仿真器能运行接电源不能运行</h2><p>可能原因有：</p><ol><li>软件使能了 DCDC，但硬件未有外部 DCDC 电路。关闭 DCDC 可修复。</li><li>printf 重定向问题。<code>Case ID: 207373</code></li></ol><hr><h2 id=nrf52-fds库在o2优化等级报错>nRF52 FDS库在o2优化等级报错</h2><p><strong>问题：</strong> 在o2优化等级下，被写入的数据指针会有非 word 对齐的情况，此时会报错。</p><p><strong>解决：</strong> 对需要使用 fds 写入的数据均使用强制 word 对齐。在 SES 中可使用<code>__ALIGN(4)</code></p><hr><h2 id=nrf52-使用p021作为io口>nRF52 使用P0.21作为IO口</h2><p><strong>编译时更改</strong></p><p>去掉<code>CONFIG_GPIO_AS_PINRESET</code>宏，重新完全编译。
-使用<code>nrfjrog -eraseuicr</code>擦除 UICR 区域。因为使用 IDE 烧录是不会主动擦除 UICR 的，会导致 reset 引脚的配置没有改变。</p><p><strong>发行后更改</strong></p><p>使用如下函数可以禁用UICR中的reset引脚复位功能。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#75715e>/** Function to disable pin reset by writing an invalid configuration (all 0) to PSELRESET[1] */</span>
+<span class=links>
+<a href=/wedoc/></a> > <a href=/wedoc/notes/>指导笔记</a> > nRF52开发笔记
+</span>
+</div>
+<div class=progress>
+<div class=wrapper>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#在gnu-toolchain中更改uicr配置>在GNU toolchain中更改UICR配置</a></li>
+<li><a href=#设置最大mtu与开启扩展广播>设置最大MTU与开启扩展广播</a></li>
+<li><a href=#nrf52从机发送缓冲区溢出报错>nRF52从机发送缓冲区溢出报错</a></li>
+<li><a href=#nrf52-广播包拼接>nRF52 广播包拼接</a></li>
+<li><a href=#nrf52-蓝牙更新广播信息>nRF52 蓝牙更新广播信息</a></li>
+<li><a href=#nrf52连接间隔与通信带宽问题>nRF52连接间隔与通信带宽问题</a></li>
+<li><a href=#蓝牙在有效距离内易断开>蓝牙在有效距离内易断开</a></li>
+<li><a href=#nrf52接仿真器能运行接电源不能运行>nRF52接仿真器能运行接电源不能运行</a></li>
+<li><a href=#nrf52-fds库在o2优化等级报错>nRF52 FDS库在o2优化等级报错</a></li>
+<li><a href=#nrf52-使用p021作为io口>nRF52 使用P0.21作为IO口</a></li>
+<li><a href=#nrf52-i2s驱动ws2812>nRF52 I2S驱动WS2812</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</div>
+<div id=head-tags>
+</div>
+<div id=body-inner>
+<h1>
+nRF52开发笔记
+</h1>
+<h2 id=在gnu-toolchain中更改uicr配置>在GNU toolchain中更改UICR配置</h2>
+<p>以<code>SES</code>环境使能<code>CONFIG_NFCT_PINS_AS_GPIOS</code>为例。仅仅在预编译宏中添加<code>CONFIG_NFCT_PINS_AS_GPIOS</code>宏定义是无效的。需要修改<code>linker</code>文件。</p>
+<p>这里，我们需要在<code>0x1000120C</code>地址写入<code>0xFFFFFFFE</code>。首先在<code>linker</code>文件的<code>MEMORY</code>段中定义这个地址如下：</p>
+<pre tabindex=0><code>UICR_NFC_MEM (r) :  ORIGIN = 0x1000120C, LENGTH = 0x04
+</code></pre><p>然后新建一个<code>SECTIONS</code>描述如下：</p>
+<pre tabindex=0><code class=language-linker data-lang=linker>SECTIONS
+{
+  .uicr_nfc :
+  {
+    KEEP(*(.uicr_nfc))
+  } &gt; UICR_NFC_MEM
+}
+</code></pre><p>接下来我们在一个确定会编译的c文件中加入如下代码，一般我们放在<code>main.c</code>中：</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#75715e>#ifdef CONFIG_NFCT_PINS_AS_GPIOS
+</span><span style=color:#75715e></span>	<span style=color:#66d9ef>volatile</span> <span style=color:#66d9ef>uint32_t</span> UICR_ADDR_0x20C <span style=color:#a6e22e>__attribute__</span>((section(<span style=color:#e6db74>&#34;uicr_nfc&#34;</span>))) <span style=color:#f92672>=</span> <span style=color:#ae81ff>0xFFFFFFFE</span>;
+<span style=color:#75715e>#endif
+</span></code></pre></div><p>其中，变量名可以随意定义。宏定义也非必须。</p>
+<p>最后，我们对芯片执行全部擦除，然后项目执行<code>rebuild</code>，之后再烧录就可以正常写入<code>UICR</code>配置了。</p>
+<hr>
+<h2 id=设置最大mtu与开启扩展广播>设置最大MTU与开启扩展广播</h2>
+<p>指定<code>#define NRF_SDH_BLE_GATT_MAX_MTU_SIZE 247</code>宏开启最大<code>MTU</code></p>
+<p>在<code>advertising_init()</code>中添加<code>init.config.ble_adv_extended_enabled = true;</code>配置即可直接使能扩展广播</p>
+<hr>
+<h2 id=nrf52从机发送缓冲区溢出报错>nRF52从机发送缓冲区溢出报错</h2>
+<p>BLE从机发送缓冲区溢出会导致发送中断，并在下一次发送时发生断开。需要捕获和处理报错。</p>
+<p>可以额外添加一级缓冲，并对超出缓冲区的部分做丢弃处理。</p>
+<hr>
+<h2 id=nrf52-广播包拼接>nRF52 广播包拼接</h2>
+<p>当<code>m_advertising.adv_data.adv_data.len</code>与其中<code>EIR</code>长度之和不等时，发生的解析错误可能将相邻广播包连接起来。</p>
+<p>其机制还需进一步分析了解。</p>
+<hr>
+<h2 id=nrf52-蓝牙更新广播信息>nRF52 蓝牙更新广播信息</h2>
+<p>使用<code>ble_advertising_advdata_update</code>更新广播信息时。</p>
+<p>在广播开启时，更改内容实时生效，更改广播长度在下一次开启广播时生效</p>
+<hr>
+<h2 id=nrf52连接间隔与通信带宽问题>nRF52连接间隔与通信带宽问题</h2>
+<ul>
+<li>在<code>CSW-V1</code>上，在<code>250ms</code>连接间隔下，使用<code>request</code>方式通信只能达到2Hz左右的频率。</li>
+<li>在<code>CSW-V1</code>上，在<code>250ms</code>连接间隔下，使用<code>command</code>方式通信，延迟在1-2个连接间隔。</li>
+<li>在<code>CSW-B5</code>上，在<code>250ms</code>连接间隔下，使用<code>command</code>方式通信，延迟在几十ms之内，且在80ms内即返回了24个数据包。同时，测试功耗没有异常。</li>
+</ul>
+<p>更改<code>gap_conn_cfg.event_length</code>至<code>16</code>可实现每个连接间隔可返回<code>20+</code>个数据包</p>
+<p><code>gap_conn_cfg.event_length</code>默认值为<code>3</code>，其为一个以<code>1.25ms</code>为单位的窗口时间，每个连接间隔能够通信的时长由这个窗口的时间决定。</p>
+<hr>
+<h2 id=蓝牙在有效距离内易断开>蓝牙在有效距离内易断开</h2>
+<p>断开原因为:0x08(<code>timeout</code>)</p>
+<p>考虑调整晶振精度参数，降低精度要求：比如从<code>20ppm</code>改为<code>50ppm</code></p>
+<p>参考资料：
+<a href=https://devzone.nordicsemi.com/f/nordic-q-a/29786/ble_hci_connection_timeout-and-nrf_clock_lf_xtal_accuracy_xx_ppm/118161#118161>https://devzone.nordicsemi.com/f/nordic-q-a/29786/ble_hci_connection_timeout-and-nrf_clock_lf_xtal_accuracy_xx_ppm/118161#118161</a></p>
+<hr>
+<h2 id=nrf52接仿真器能运行接电源不能运行>nRF52接仿真器能运行接电源不能运行</h2>
+<p>可能原因有：</p>
+<ol>
+<li>软件使能了 DCDC，但硬件未有外部 DCDC 电路。关闭 DCDC 可修复。</li>
+<li>printf 重定向问题。<code>Case ID: 207373</code></li>
+</ol>
+<hr>
+<h2 id=nrf52-fds库在o2优化等级报错>nRF52 FDS库在o2优化等级报错</h2>
+<p><strong>问题：</strong> 在o2优化等级下，被写入的数据指针会有非 word 对齐的情况，此时会报错。</p>
+<p><strong>解决：</strong> 对需要使用 fds 写入的数据均使用强制 word 对齐。在 SES 中可使用<code>__ALIGN(4)</code></p>
+<hr>
+<h2 id=nrf52-使用p021作为io口>nRF52 使用P0.21作为IO口</h2>
+<p><strong>编译时更改</strong></p>
+<p>去掉<code>CONFIG_GPIO_AS_PINRESET</code>宏，重新完全编译。
+使用<code>nrfjrog -eraseuicr</code>擦除 UICR 区域。因为使用 IDE 烧录是不会主动擦除 UICR 的，会导致 reset 引脚的配置没有改变。</p>
+<p><strong>发行后更改</strong></p>
+<p>使用如下函数可以禁用UICR中的reset引脚复位功能。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#75715e>/** Function to disable pin reset by writing an invalid configuration (all 0) to PSELRESET[1] */</span>
 <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>disable_pin_reset</span>(<span style=color:#66d9ef>void</span>)
 {
     <span style=color:#75715e>// Only perform if needed (which is the first time this code runs)
@@ -46,5 +324,46 @@ parent"><a href=/wedoc/notes/>指导笔记
 </span><span style=color:#75715e></span>        NVIC_SystemReset();
     }
 }
-</code></pre></div><hr><h2 id=nrf52-i2s驱动ws2812>nRF52 I2S驱动WS2812</h2><p>参考：
-<a href=https://electronut.in/nrf52-i2s-ws2812>https://electronut.in/nrf52-i2s-ws2812</a></p><ul><li>当<code>sck</code>引脚功能被占据时，会导致除<code>lrck</code>引脚外的其他引脚输出异常。而<code>lrck</code>仍能正常输出时钟信号。</li><li>I2S 的驱动使用了双缓冲方式。在第二缓冲未设置时，会产生<code>NRFX_I2S_STATUS_NEXT_BUFFERS_NEEDED</code>事件回调。</li><li>实现单次输出 WS2812 驱动波形的方式如下：<ol><li>i2s start</li><li>第一次会在输出第一个时钟周期时产生<code>NEXT_BUFFER</code>事件，在这里设置第二缓冲</li><li>当第一缓冲输出至最后一个时钟周期时，驱动自动切换至第二缓冲，此时会产生第二次<code>NEXT_BUFFER</code>事件，以此作为波形输出结束的标志。在此时关闭i2s输出</li></ol></li><li>在波形最后添加一个<code>0x00000000</code>的填充，就可以避免有效数据被剪切掉。</li><li>I2S输出高4位与低4位需要交换才能与 WS2812 的数据一致。<ul><li>如：I2S 写入 <code>0x8888E888</code> 则 WS2812 收到 <code>0x80</code></li></ul></li></ul><footer class=footline></footer></div></div><div id=navigation></div></section><div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px><div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div></div><script src=/wedoc/js/clipboard.min.js?1626687596></script><script src=/wedoc/js/perfect-scrollbar.min.js?1626687596></script><script src=/wedoc/js/perfect-scrollbar.jquery.min.js?1626687596></script><script src=/wedoc/js/jquery.sticky.js?1626687596></script><script src=/wedoc/js/featherlight.min.js?1626687596></script><script src=/wedoc/js/highlight.pack.js?1626687596></script><script>hljs.initHighlightingOnLoad()</script><script src=/wedoc/js/modernizr.custom-3.6.0.js?1626687596></script><script src=/wedoc/js/learn.js?1626687596></script><script src=/wedoc/js/hugo-learn.js?1626687596></script></body></html>
+</code></pre></div><hr>
+<h2 id=nrf52-i2s驱动ws2812>nRF52 I2S驱动WS2812</h2>
+<p>参考：
+<a href=https://electronut.in/nrf52-i2s-ws2812>https://electronut.in/nrf52-i2s-ws2812</a></p>
+<ul>
+<li>当<code>sck</code>引脚功能被占据时，会导致除<code>lrck</code>引脚外的其他引脚输出异常。而<code>lrck</code>仍能正常输出时钟信号。</li>
+<li>I2S 的驱动使用了双缓冲方式。在第二缓冲未设置时，会产生<code>NRFX_I2S_STATUS_NEXT_BUFFERS_NEEDED</code>事件回调。</li>
+<li>实现单次输出 WS2812 驱动波形的方式如下：
+<ol>
+<li>i2s start</li>
+<li>第一次会在输出第一个时钟周期时产生<code>NEXT_BUFFER</code>事件，在这里设置第二缓冲</li>
+<li>当第一缓冲输出至最后一个时钟周期时，驱动自动切换至第二缓冲，此时会产生第二次<code>NEXT_BUFFER</code>事件，以此作为波形输出结束的标志。在此时关闭i2s输出</li>
+</ol>
+</li>
+<li>在波形最后添加一个<code>0x00000000</code>的填充，就可以避免有效数据被剪切掉。</li>
+<li>I2S输出高4位与低4位需要交换才能与 WS2812 的数据一致。
+<ul>
+<li>如：I2S 写入 <code>0x8888E888</code> 则 WS2812 收到 <code>0x80</code></li>
+</ul>
+</li>
+</ul>
+<footer class=footline>
+</footer>
+</div>
+</div>
+<div id=navigation>
+</div>
+</section>
+<div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
+<div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
+</div>
+<script src=/wedoc/js/clipboard.min.js?1632396414></script>
+<script src=/wedoc/js/perfect-scrollbar.min.js?1632396414></script>
+<script src=/wedoc/js/perfect-scrollbar.jquery.min.js?1632396414></script>
+<script src=/wedoc/js/jquery.sticky.js?1632396414></script>
+<script src=/wedoc/js/featherlight.min.js?1632396414></script>
+<script src=/wedoc/js/highlight.pack.js?1632396414></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script src=/wedoc/js/modernizr.custom-3.6.0.js?1632396414></script>
+<script src=/wedoc/js/learn.js?1632396414></script>
+<script src=/wedoc/js/hugo-learn.js?1632396414></script>
+</body>
+</html>
