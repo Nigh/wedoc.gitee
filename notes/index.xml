@@ -23,13 +23,14 @@ gap_conn_cfg.event_length默认值为3，其为一个以1.25ms为单位的窗口
 Install-Module oh-my-posh -AllowPrerelease -Scope CurrentUser
 如遇魔女结界，则使用爱与魔法。
 配置 使用notepad $PROFILE编辑powershell的配置文件，添加如下内容：
-Import-Module posh-git Import-Module oh-my-posh Get-PoshThemes Set-PoshPrompt -Theme Paradox 打开windows terminal的配置文件，为powershell添加如下配置，可以使得终端打开时的默认路径即为打开的目录。
+Import-Module posh-git Import-Module oh-my-posh Get-PoshThemes Set-PoshPrompt -Theme Paradox 如果显示没有权限执行脚本，则运行Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine可以赋予权限。
+打开windows terminal的配置文件，为powershell添加如下配置，可以使得终端打开时的默认路径即为打开的目录。
 &amp;#34;startingDirectory&amp;#34; : null 然后更改字体和颜色主题，可以直接添加到defaults里面，这样直接对所有终端都生效：
 &amp;#34;fontFace&amp;#34;: &amp;#34;Monofurbold NF&amp;#34;, &amp;#34;colorScheme&amp;#34;:&amp;#34;Tango Dark&amp;#34; 其中，字体需要安装，地址见参考文献。
 官方使用的字体是Meslo LGM NF，体积比较大(63.8Mb)。
 这里选用的是微软出品的Cascadia Code PL体积比较小(7.8Mb)。
 根据官方描述，任意的Nerd Font应当都是兼容的。可以在nerdfonts.com网站浏览。
-参考文献: https://github.com/JanDeDobbeleer/oh-my-posh3 https://ohmyposh.dev/docs/ https://www.nerdfonts.com/ https://github.com/microsoft/cascadia-code/releases https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Monofur.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Meslo.zip zsh + oh my zsh + theme 为Linux安装zsh shell并配置主题。</description></item><item><title>愛と魔法</title><link>https://xianii.gitee.io/wedoc/notes/magic/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/magic/</guid><description>代理魔法 Git 设置：
+参考文献: https://github.com/JanDeDobbeleer/oh-my-posh3 https://ohmyposh.dev/docs/ https://www.nerdfonts.com/ https://github.com/microsoft/cascadia-code/releases https://github.</description></item><item><title>愛と魔法</title><link>https://xianii.gitee.io/wedoc/notes/magic/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xianii.gitee.io/wedoc/notes/magic/</guid><description>代理魔法 Git 设置：
 git config --global http.proxy http://127.0.0.1:1080 git config --global https.proxy https://127.0.0.1:1080 取消：
 git config --global --unset http.proxy git config --global --unset https.proxy Linux shell 设置：
 export http_proxy=http://127.0.0.1:1080 export https_proxy=https://127.0.0.1:1080 export https_proxy=&amp;quot;socks5://127.0.0.1:1080&amp;quot; 取消：
